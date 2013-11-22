@@ -1,6 +1,6 @@
 ew
 ==
-<b>Constituição do Grupo de Trabalho nº3:</b>
+<b>Constituição do Grupo de Trabalho nº3: </b>
 <br/>
 Ana Zita Pinto Sousa pg24161<br/>
 José Miguel Fernandes Carvalho pg25287<br/>
