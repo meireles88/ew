@@ -1,0 +1,45 @@
+[17 Apr 2014 17:06:50] DEBUG Executing SQL script
+[17 Apr 2014 17:06:50] INFO ================================================================================
+[17 Apr 2014 17:06:50] INFO outputPath= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/RollbackSQL.xml'
+[17 Apr 2014 17:06:50] INFO onError= 'stop'
+[17 Apr 2014 17:06:50] INFO statementSeparator= ';'
+[17 Apr 2014 17:06:50] INFO derby.system.home= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/.metadata/.plugins/com.webratio.commons.db/derby'
+[17 Apr 2014 17:06:50] INFO password= 'phpd3v3l0p3r'
+[17 Apr 2014 17:06:50] INFO url= 'jdbc:mysql://localhost:3306/ew_ideias'
+[17 Apr 2014 17:06:50] INFO username= 'root'
+[17 Apr 2014 17:06:50] INFO autoCommit= 'false'
+[17 Apr 2014 17:06:50] INFO outputLogPath= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/RollbackSQL.xml.log'
+[17 Apr 2014 17:06:50] INFO driverClass= 'com.mysql.jdbc.Driver'
+[17 Apr 2014 17:06:50] INFO encoding= ''
+[17 Apr 2014 17:06:50] INFO eventSocketPort= '51737'
+[17 Apr 2014 17:06:50] INFO sqlScript= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/RollbackSQL.sql'
+[17 Apr 2014 17:06:50] INFO ================================================================================
+[17 Apr 2014 17:06:50] INFO Connecting to the Database...
+[17 Apr 2014 17:06:51] INFO Database connection estabilished
+[17 Apr 2014 17:06:51] INFO transaction isolation: 4
+[17 Apr 2014 17:06:51] DEBUG ================================================================================
+[17 Apr 2014 17:06:51] DEBUG Executing SQL script file: /Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/RollbackSQL.sql
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `ideia`   drop foreign key `fk_ideia_categoria`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `ideia`  drop column  `categoria_oid`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `user_group`   drop foreign key `fk_user_group_group`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `user_group`   drop foreign key `fk_user_group_user`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  drop table `user_group`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `user`   drop foreign key `fk_user_group`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `user`  drop column  `group_oid`
+[17 Apr 2014 17:06:51] DEBUG Executing statement:  alter table `group_module`   drop foreign key `fk_group_module_module`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  alter table `group_module`   drop foreign key `fk_group_module_group`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `group_module`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  alter table `group`   drop foreign key `fk_group_module`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  alter table `group`  drop column  `module_oid`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `tag`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `categoria`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `voto`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `ideia`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `grupoorcamental`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `user`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `module`
+[17 Apr 2014 17:06:52] DEBUG Executing statement:  drop table `group`
+[17 Apr 2014 17:06:52] DEBUG ================================================================================
+[17 Apr 2014 17:06:52] DEBUG SQL SCRIPT SUCCESSFULLY EXECUTED
+[17 Apr 2014 17:06:52] INFO Database connection closed
+[17 Apr 2014 17:06:52] DEBUG Total time: 1869 milliseconds

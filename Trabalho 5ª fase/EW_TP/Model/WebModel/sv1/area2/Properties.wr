@@ -1,0 +1,67 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="1100" gr:y="1175" id="sv1#area2" name="&#193;rea de Administra&#231;&#227;o" landmark="true" defaultPage="sv1#area2#page2" landmarks="sv1#area2#page2 sv1#area2#page12 sv1#area2#page17" protected="true">
+  <OperationUnits>
+    <ModifyUnit gr:x="385" gr:y="210" id="sv1#area2#mfu1" name="Update1" entity="ent2">
+      <Selector id="sv1#area2#mfu1#su9" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#mfu1#su9#kcond11" name="KeyCondition11" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#mfu1#oln1" name="OKFlow1" to="sv1#area2#page2" automaticCoupling="true"/>
+    </ModifyUnit>
+    <DeleteUnit gr:x="235" gr:y="215" id="sv1#area2#dlu1" name="Delete1" entity="ent2">
+      <Selector id="sv1#area2#dlu1#su11" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#dlu1#su11#kcond12" name="KeyCondition12" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#dlu1#oln2" name="OKFlow2" to="sv1#area2#page2" automaticCoupling="true"/>
+    </DeleteUnit>
+    <CreateUnit gr:x="335" gr:y="870" id="sv1#area2#cru1" name="Create1" entity="ent4">
+      <OKLink id="sv1#area2#cru1#oln9" name="OKFlow9" to="sv1#area2#page12" automaticCoupling="true"/>
+    </CreateUnit>
+    <ModifyUnit gr:x="430" gr:y="870" id="sv1#area2#mfu3" name="Update3" entity="ent4">
+      <Selector id="sv1#area2#mfu3#su12" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#mfu3#su12#kcond13" name="KeyCondition13" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#mfu3#oln10" name="OKFlow10" to="sv1#area2#page12" automaticCoupling="true"/>
+    </ModifyUnit>
+    <DeleteUnit gr:x="635" gr:y="525" id="sv1#area2#dlu2" name="Delete2" entity="ent4">
+      <Selector id="sv1#area2#dlu2#su17" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#dlu2#su17#kcond15" name="KeyCondition15" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#dlu2#oln13" name="OKFlow13" to="sv1#area2#page12" automaticCoupling="true"/>
+    </DeleteUnit>
+    <CreateUnit gr:x="590" gr:y="365" id="sv1#area2#cru3" name="Create3" entity="ent1">
+      <OKLink id="sv1#area2#cru3#oln15" name="OKFlow15" to="sv1#area2#page12" automaticCoupling="true"/>
+    </CreateUnit>
+    <ModifyUnit gr:x="0" gr:y="370" id="sv1#area2#mfu4" name="Update4" entity="ent1">
+      <Selector id="sv1#area2#mfu4#su21" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#mfu4#su21#kcond17" name="KeyCondition17" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#mfu4#oln16" name="OKFlow16" to="sv1#area2#page12" automaticCoupling="true"/>
+    </ModifyUnit>
+    <ModifyUnit gr:x="695" gr:y="1095" id="sv1#area2#mfu5" name="Update5" entity="User">
+      <Selector id="sv1#area2#mfu5#su23" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#mfu5#su23#kcond21" name="KeyCondition21" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#mfu5#oln11" name="OKFlow11" to="sv1#area2#cnu4" automaticCoupling="true"/>
+    </ModifyUnit>
+    <ConnectUnit gr:x="730" gr:y="1220" id="sv1#area2#cnu4" name="Connect4" relationship="User2DefaultGroup">
+      <SourceSelector id="sv1#area2#cnu4#su28" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#cnu4#su28#kcond22" name="KeyCondition22" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="sv1#area2#cnu4#su29" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#cnu4#su29#kcond23" name="KeyCondition23" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="sv1#area2#cnu4#oln17" name="OKFlow17" to="sv1#area2#page17" automaticCoupling="true" gr:bendpoints="-459,27,-9,257"/>
+    </ConnectUnit>
+    <DeleteUnit gr:x="120" gr:y="1185" id="sv1#area2#dlu4" name="Delete4" entity="User">
+      <Selector id="sv1#area2#dlu4#su30" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#dlu4#su30#kcond24" name="KeyCondition24" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#dlu4#oln18" name="OKFlow18" to="sv1#area2#page17" automaticCoupling="true"/>
+    </DeleteUnit>
+    <DeleteUnit gr:x="65" gr:y="515" id="sv1#area2#dlu5" name="Delete5" entity="ent1">
+      <Selector id="sv1#area2#dlu5#su34" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area2#dlu5#su34#kcond25" name="KeyCondition25" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area2#dlu5#oln19" name="OKFlow19" to="sv1#area2#page12" automaticCoupling="true"/>
+    </DeleteUnit>
+  </OperationUnits>
+</Area>

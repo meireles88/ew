@@ -1,0 +1,31 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="205" gr:y="695" id="sv1#area2#page13" name="Criar Categoria" protected="true">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#area2#page13#enu7" name="Criar" linkOrder="sv1#area2#page13#enu7#ln32" entity="ent4">
+      <Link id="sv1#area2#page13#enu7#ln32" name="Flow32" to="sv1#area2#cru1" automaticCoupling="true" type="normal" validate="true"/>
+      <Field id="sv1#area2#page13#enu7#fld27" name="titulo" type="string" modifiable="true" attribute="ent4#att22"/>
+      <Field id="sv1#area2#page13#enu7#fld28" name="descricao" type="string" modifiable="true" attribute="ent4#att23"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page13#enu7">
+          <layout:Link link="sv1#area2#page13#enu7#ln32"/>
+          <layout:Field field="sv1#area2#page13#enu7#fld27"/>
+          <layout:Field field="sv1#area2#page13#enu7#fld28"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

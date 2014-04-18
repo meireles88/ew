@@ -1,0 +1,10 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="1095" gr:y="675" id="sv1#area4" name="&#193;rea de Modera&#231;&#227;o" landmark="true" protected="true" landmarks="sv1#area4#page6" defaultPage="sv1#area4#page6">
+  <OperationUnits>
+    <ModifyUnit gr:x="185" gr:y="210" id="sv1#area4#mfu2" name="Update2" entity="ent2">
+      <Selector id="sv1#area4#mfu2#su18" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area4#mfu2#su18#kcond14" name="KeyCondition14" predicate="in" implied="false"/>
+      </Selector>
+      <OKLink id="sv1#area4#mfu2#oln12" name="OKFlow12" to="sv1#area4#page6" automaticCoupling="true"/>
+    </ModifyUnit>
+  </OperationUnits>
+</Area>

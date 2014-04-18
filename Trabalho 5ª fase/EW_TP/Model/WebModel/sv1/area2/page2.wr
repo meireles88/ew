@@ -1,0 +1,48 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="160" gr:y="0" id="sv1#area2#page2" name="Gest&#227;o de Ideias" landmark="true" protected="true">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="0" gr:y="0" id="sv1#area2#page2#pwu3" name="Ideias" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="ent2#att14 ent2#att15 ent2#att18 ent2#att19 ent2#att28" linkOrder="sv1#area2#page2#pwu3#ln27 sv1#area2#page2#pwu3#ln30">
+      <Link id="sv1#area2#page2#pwu3#ln27" name="Editar" to="sv1#area2#page10#enu6" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area2#page2#pwu3#ln30" name="Apagar" to="sv1#area2#dlu1" type="normal" automaticCoupling="true" validate="true"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page2#pwu3">
+          <layout:Attribute attribute="ent2#att14"/>
+          <layout:Attribute attribute="ent2#att15"/>
+          <layout:Attribute attribute="ent2#att18"/>
+          <layout:Attribute attribute="ent2#att19"/>
+          <layout:Attribute attribute="ent2#att28"/>
+          <layout:Link link="sv1#area2#page2#pwu3#ln27"/>
+          <layout:Link link="sv1#area2#page2#pwu3#ln30"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

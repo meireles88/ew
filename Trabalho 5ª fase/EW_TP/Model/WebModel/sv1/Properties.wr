@@ -1,0 +1,8 @@
+<SiteView xmlns:gr="http://www.webratio.com/2006/WebML/Graph" id="sv1" name="Site View 1" landmarks="sv1#area3 sv1#area1 sv1#area4 sv1#area2" homePage="sv1#area1#page1">
+  <OperationUnits>
+    <LoginUnit gr:x="610" gr:y="390" id="sv1#lgu1" name="Login1">
+      <KOLink id="sv1#lgu1#kln2" name="KOFlow2" to="sv1#area1#page5#enu4" automaticCoupling="true" gr:bendpoints="-86,15,84,15"/>
+    </LoginUnit>
+    <LogoutUnit gr:x="535" gr:y="1080" id="sv1#lou3" name="Logout3" siteView="sv1"/>
+  </OperationUnits>
+</SiteView>

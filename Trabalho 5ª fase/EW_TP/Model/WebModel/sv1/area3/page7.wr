@@ -1,0 +1,106 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="0" id="sv1#area3#page7" name="Perfil" landmark="true" protected="true">
+  <ContentUnits>
+    <GetUnit gr:x="160" gr:y="0" id="sv1#area3#page7#gtu3" name="Get3" contextParameters="UserCtxParam">
+      <Link id="sv1#area3#page7#gtu3#ln13" name="Flow13" to="sv1#area3#page7#dau1" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv1#area3#page7#gtu3#ln5" name="Flow5" to="sv1#area3#page7#pwu4" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv1#area3#page7#gtu3#ln63" name="Flow63" to="sv1#area3#page7#seu9" automaticCoupling="true" type="transport" validate="true" gr:bendpoints="-182,44,-22,-142"/>
+    </GetUnit>
+    <DataUnit gr:x="140" gr:y="95" id="sv1#area3#page7#dau1" name="Dados Pessoais" entity="User" displayAttributes="userName email User#att1 User#att2 User#att3">
+      <Selector id="sv1#area3#page7#dau1#su3" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#page7#dau1#su3#kcond3" name="KeyCondition3" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+    <PowerIndexUnit gr:x="275" gr:y="95" id="sv1#area3#page7#pwu4" name="Ideias inseridas" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="ent2#att14 ent2#att15">
+      <Selector id="sv1#area3#page7#pwu4#su14" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area3#page7#pwu4#su14#rcond1" name="RoleCondition1" predicate="in" implied="false" role="rel8#role15"/>
+      </Selector>
+    </PowerIndexUnit>
+    <PowerIndexUnit gr:x="45" gr:y="80" id="sv1#area3#page7#pwu16" name="Votos efetuados" sortable="true" checkable="false" useCountQuery="false" entity="ent2" displayAttributes="ent2#att14 ent2#att15">
+      <Selector id="sv1#area3#page7#pwu16#su38" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area3#page7#pwu16#su38#rcond5" name="RoleCondition5" predicate="in" implied="false" role="rel6#role12"/>
+      </Selector>
+    </PowerIndexUnit>
+    <SelectorUnit gr:x="0" gr:y="180" id="sv1#area3#page7#seu9" name="Selector9" entity="ent3">
+      <Selector id="sv1#area3#page7#seu9#su39" defaultPolicy="fill" booleanOperator="and">
+        <RelationshipRoleCondition id="sv1#area3#page7#seu9#su39#rcond6" name="RoleCondition6" predicate="in" implied="false" role="rel7#role14"/>
+      </Selector>
+      <Link id="sv1#area3#page7#seu9#ln64" name="Flow64" to="sv1#area3#page7#pwu16" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#page7#dau1">
+          <layout:Attribute attribute="userName"/>
+          <layout:Attribute attribute="email"/>
+          <layout:Attribute attribute="User#att1"/>
+          <layout:Attribute attribute="User#att2"/>
+          <layout:Attribute attribute="User#att3"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#page7#pwu4">
+          <layout:Attribute attribute="ent2#att14"/>
+          <layout:Attribute attribute="ent2#att15"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area3#page7#pwu16">
+          <layout:Attribute attribute="ent2#att14"/>
+          <layout:Attribute attribute="ent2#att15"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

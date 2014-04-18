@@ -1,0 +1,134 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="290" gr:y="75" id="sv1#area1#page1" name="Ideias" landmark="true" linkOrder="sv1#area1#page1#ln7">
+  <ContentUnits>
+    <SelectorUnit gr:x="0" gr:y="-5" id="sv1#area1#page1#seu7" name="Categoria" entity="ent4">
+      <Link id="sv1#area1#page1#seu7#ln49" name="Flow49" to="sv1#area1#page1#enu12" type="transport" validate="true">
+        <LinkParameter id="sv1#area1#page1#seu7#ln49#par17" name="titulo_categoria [label]" source="ent4#att22Array" target="sv1#area1#page1#enu12#sfld6_label"/>
+        <LinkParameter id="sv1#area1#page1#seu7#ln49#par18" name="oid_categoria [output]" source="ent4#att21Array" target="sv1#area1#page1#enu12#sfld6_output"/>
+      </Link>
+    </SelectorUnit>
+    <SelectorUnit gr:x="0" gr:y="105" id="sv1#area1#page1#seu8" name="GrupoOrcamental" entity="ent1">
+      <Link id="sv1#area1#page1#seu8#ln50" name="Flow50" to="sv1#area1#page1#enu12" type="transport" validate="true">
+        <LinkParameter id="sv1#area1#page1#seu8#ln50#par27" name="titulo_grupoorca [label]" source="ent1#att9Array" target="sv1#area1#page1#enu12#sfld7_label"/>
+        <LinkParameter id="sv1#area1#page1#seu8#ln50#par28" name="oid_grupoorca [output]" source="ent1#att8Array" target="sv1#area1#page1#enu12#sfld7_output"/>
+      </Link>
+    </SelectorUnit>
+    <EntryUnit gr:x="190" gr:y="70" id="sv1#area1#page1#enu12" name="Procura" entity="ent2" fieldOrder="sv1#area1#page1#enu12#fld41 sv1#area1#page1#enu12#fld42 sv1#area1#page1#enu12#fld43 sv1#area1#page1#enu12#fld44 sv1#area1#page1#enu12#sfld6 sv1#area1#page1#enu12#sfld7" linkOrder="sv1#area1#page1#enu12#ln51">
+      <Field id="sv1#area1#page1#enu12#fld41" name="titulo" type="string" modifiable="true" attribute="ent2#att14"/>
+      <Field id="sv1#area1#page1#enu12#fld42" name="descricao" type="string" modifiable="true" attribute="ent2#att15"/>
+      <Field id="sv1#area1#page1#enu12#fld43" name="rating" type="integer" modifiable="true" attribute="ent2#att18"/>
+      <Field id="sv1#area1#page1#enu12#fld44" name="quantia" type="integer" modifiable="true" attribute="ent2#att19"/>
+      <SelectionField id="sv1#area1#page1#enu12#sfld7" name="grupoorca" type="string" modifiable="true"/>
+      <SelectionField id="sv1#area1#page1#enu12#sfld6" name="categoria" type="string" modifiable="true"/>
+      <Link id="sv1#area1#page1#enu12#ln51" name="Procurar" to="sv1#area1#page1#pwu15" type="normal" validate="true">
+        <LinkParameter id="sv1#area1#page1#enu12#ln51#par29" name="descricao_descricao" source="sv1#area1#page1#enu12#fld42" target="sv1#area1#page1#pwu15#su33#acond10"/>
+        <LinkParameter id="sv1#area1#page1#enu12#ln51#par30" name="categoria_RoleCondition3 [oid]" source="sv1#area1#page1#enu12#sfld6" target="sv1#area1#page1#pwu15#su33#rcond3.ent4#att21"/>
+        <LinkParameter id="sv1#area1#page1#enu12#ln51#par31" name="grupoorca_RoleCondition4 [oid]" source="sv1#area1#page1#enu12#sfld7" target="sv1#area1#page1#pwu15#su33#rcond4.ent1#att8"/>
+        <LinkParameter id="sv1#area1#page1#enu12#ln51#par32" name="titulo_titulo" source="sv1#area1#page1#enu12#fld41" target="sv1#area1#page1#pwu15#su33#acond9"/>
+      </Link>
+    </EntryUnit>
+    <PowerIndexUnit gr:x="335" gr:y="75" id="sv1#area1#page1#pwu15" name="Ideias" sortable="true" checkable="false" useCountQuery="false" entity="ent2" linkOrder="sv1#area1#page1#pwu15#ln52 sv1#area1#page1#pwu15#ln54" displayAttributes="ent2#att14 ent2#att18">
+      <Selector id="sv1#area1#page1#pwu15#su33" defaultPolicy="fill" booleanOperator="and">
+        <AttributesCondition id="sv1#area1#page1#pwu15#su33#acond9" name="titulo" predicate="contains" booleanOperator="or" implied="true" attributes="ent2#att14"/>
+        <AttributesCondition id="sv1#area1#page1#pwu15#su33#acond10" name="descricao" predicate="contains" booleanOperator="or" implied="true" attributes="ent2#att15"/>
+        <RelationshipRoleCondition id="sv1#area1#page1#pwu15#su33#rcond3" name="RoleCondition3" predicate="in" implied="true" role="rel1#role2"/>
+        <RelationshipRoleCondition id="sv1#area1#page1#pwu15#su33#rcond4" name="RoleCondition4" predicate="in" implied="true" role="rel3#role6"/>
+        <AttributesCondition id="sv1#area1#page1#pwu15#su33#acond11" name="aprovada" predicate="eq" booleanOperator="or" implied="false" attributes="ent2#att28" value="1"/>
+      </Selector>
+      <Link id="sv1#area1#page1#pwu15#ln52" name="Votar" to="sv1#area1#cru6" type="normal" validate="true">
+        <LinkParameter id="sv1#area1#page1#pwu15#ln52#par49" name="oid_Ideia.oid(VotoToIdeia)" source="data[].ent2#att13" target="sv1#area1#cru6.rel6#role12.ent2#att13"/>
+        <LinkParameter id="sv1#area1#page1#pwu15#ln52#par50" name="oid_PASSING" source="data[].ent2#att13" passing="true"/>
+      </Link>
+      <Link id="sv1#area1#page1#pwu15#ln54" name="Detalhes" to="sv1#area1#page11#dau4" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area1#page1#enu12">
+          <layout:Link link="sv1#area1#page1#enu12#ln51"/>
+          <layout:Field field="sv1#area1#page1#enu12#fld41"/>
+          <layout:Field field="sv1#area1#page1#enu12#fld42"/>
+          <layout:Field field="sv1#area1#page1#enu12#fld43"/>
+          <layout:Field field="sv1#area1#page1#enu12#fld44"/>
+          <layout:Field field="sv1#area1#page1#enu12#sfld6"/>
+          <layout:Field field="sv1#area1#page1#enu12#sfld7"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area1#page1#pwu15">
+          <layout:Attribute attribute="ent2#att14"/>
+          <layout:Attribute attribute="ent2#att18"/>
+          <layout:Link link="sv1#area1#page1#pwu15#ln52"/>
+          <layout:Link link="sv1#area1#page1#pwu15#ln54"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#area1#page1#ln7" name="Adicionar Ideia" to="sv1#area1#page9" automaticCoupling="true" type="normal" validate="true"/>
+</Page>

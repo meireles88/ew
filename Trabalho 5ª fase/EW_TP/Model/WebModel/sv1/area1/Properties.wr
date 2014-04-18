@@ -1,0 +1,52 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="390" gr:y="-155" id="sv1#area1" name="&#193;rea Principal" landmark="true" defaultPage="sv1#area1#page1" linkVisibilityPolicy="hide" landmarks="sv1#area1#page4 sv1#area1#page5 sv1#area1#page1">
+  <OperationUnits>
+    <CreateUnit gr:x="20" gr:y="350" id="sv1#area1#cru2" name="Create2" entity="User">
+      <KOLink id="sv1#area1#cru2#kln1" name="KOFlow1" to="sv1#area1#page4#enu3" automaticCoupling="true" gr:bendpoints="-18,-62,-13,63"/>
+      <OKLink id="sv1#area1#cru2#oln8" name="OKFlow8" to="sv1#area1#cnu3">
+        <LinkParameter id="sv1#area1#cru2#oln8#par23" name="oid_KeyCondition9 [oid] [User] [Source]" source="userOIDArray" target="sv1#area1#cnu3#su15#kcond9.userOID"/>
+        <LinkParameter id="sv1#area1#cru2#oln8#par24" name="oid_PASSING" source="userOIDArray" passing="true"/>
+      </OKLink>
+    </CreateUnit>
+    <CreateUnit gr:x="785" gr:y="640" id="sv1#area1#cru4" name="Create4" entity="ent2">
+      <OKLink id="sv1#area1#cru4#oln3" name="OKFlow3" to="sv1#area1#cnu1" automaticCoupling="true"/>
+    </CreateUnit>
+    <CreateUnit gr:x="1025" gr:y="355" id="sv1#area1#cru6" name="Votar" entity="ent3" protected="true">
+      <KOLink id="sv1#area1#cru6#kln4" name="KOFlow4" to="sv1#area1#page1#pwu15" automaticCoupling="true" gr:bendpoints="-174,-54,186,91"/>
+      <Property id="sv1#area1#cru6#prop1" name="Property 1"/>
+      <OKLink id="sv1#area1#cru6#oln25" name="OKFlow25" to="sv1#area1#page11#dau4">
+        <LinkParameter id="sv1#area1#cru6#oln25#par51" name="oid_PASSING_KeyCondition7 [oid]" sourceLinkParameter="sv1#area1#page1#pwu15#ln52#par50" target="sv1#area1#page11#dau4#su8#kcond7.ent2#att13"/>
+      </OKLink>
+    </CreateUnit>
+    <GetUnit gr:x="785" gr:y="470" id="sv1#area1#gtu1" name="Get1" contextParameters="UserCtxParam" linkOrder="sv1#area1#gtu1#ln15 sv1#area1#gtu1#ln3">
+      <Link id="sv1#area1#gtu1#ln15" name="Flow15" to="sv1#area1#cru6" automaticCoupling="true" type="transport" validate="true"/>
+      <Link id="sv1#area1#gtu1#ln3" name="Flow3" to="sv1#area1#cru4" automaticCoupling="true" type="transport" validate="true"/>
+    </GetUnit>
+    <ConnectUnit gr:x="635" gr:y="515" id="sv1#area1#cnu1" name="Connect1" relationship="rel3#role5">
+      <SourceSelector id="sv1#area1#cnu1#su1" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#cnu1#su1#kcond1" name="KeyCondition1" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="sv1#area1#cnu1#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#cnu1#su2#kcond4" name="KeyCondition4" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="sv1#area1#cnu1#oln4" name="OKFlow4" to="sv1#area1#cnu2" automaticCoupling="true"/>
+    </ConnectUnit>
+    <ConnectUnit gr:x="550" gr:y="650" id="sv1#area1#cnu2" name="Connect2" relationship="rel1#role1">
+      <SourceSelector id="sv1#area1#cnu2#su5" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#cnu2#su5#kcond5" name="KeyCondition5" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="sv1#area1#cnu2#su7" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#cnu2#su7#kcond8" name="KeyCondition8" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="sv1#area1#cnu2#oln6" name="OKFlow6" to="sv1#area1#page1" automaticCoupling="true"/>
+    </ConnectUnit>
+    <ConnectUnit gr:x="135" gr:y="385" id="sv1#area1#cnu3" name="Connect3" relationship="User2DefaultGroup">
+      <SourceSelector id="sv1#area1#cnu3#su15" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#cnu3#su15#kcond9" name="KeyCondition9" predicate="in" implied="false"/>
+      </SourceSelector>
+      <TargetSelector id="sv1#area1#cnu3#su16" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#cnu3#su16#kcond10" name="KeyCondition10" predicate="in" implied="false"/>
+      </TargetSelector>
+      <OKLink id="sv1#area1#cnu3#oln7" name="OKFlow7" to="sv1#area1#page5#enu4" automaticCoupling="true"/>
+    </ConnectUnit>
+  </OperationUnits>
+</Area>

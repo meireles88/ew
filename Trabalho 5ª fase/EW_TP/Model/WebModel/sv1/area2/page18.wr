@@ -1,0 +1,67 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="500" gr:y="1020" id="sv1#area2#page18" name="Editar Utilizador" protected="true">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#area2#page18#enu2" name="Form2" entity="User" linkOrder="sv1#area2#page18#enu2#ln23" fieldOrder="sv1#area2#page18#enu2#fld17 sv1#area2#page18#enu2#fld18 sv1#area2#page18#enu2#fld19 sv1#area2#page18#enu2#fld20 sv1#area2#page18#enu2#fld21 sv1#area2#page18#enu2#fld35 sv1#area2#page18#enu2#fld36 sv1#area2#page18#enu2#sfld3">
+      <Link id="sv1#area2#page18#enu2#ln23" name="Flow23" to="sv1#area2#mfu5" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area2#page18#enu2#ln26" name="Flow26" to="sv1#area2#cnu4" type="transport" validate="true">
+        <LinkParameter id="sv1#area2#page18#enu2#ln26#par5" name="Key [oid]_KeyCondition22 [oid] [User] [Source]" source="key.userOID" target="sv1#area2#cnu4#su28#kcond22.userOID"/>
+        <LinkParameter id="sv1#area2#page18#enu2#ln26#par6" name="grupo_KeyCondition23 [oid] [Group] [Target]" source="sv1#area2#page18#enu2#sfld3" target="sv1#area2#cnu4#su29#kcond23.groupOID"/>
+      </Link>
+      <Field id="sv1#area2#page18#enu2#fld17" name="userName" type="string" modifiable="true" attribute="userName"/>
+      <Field id="sv1#area2#page18#enu2#fld18" name="password" type="password" modifiable="true" attribute="password"/>
+      <Field id="sv1#area2#page18#enu2#fld19" name="email" type="string" modifiable="true" attribute="email"/>
+      <Field id="sv1#area2#page18#enu2#fld20" name="dataNascimento" type="date" modifiable="true" attribute="User#att1"/>
+      <Field id="sv1#area2#page18#enu2#fld21" name="morada" type="string" modifiable="true" attribute="User#att2"/>
+      <Field id="sv1#area2#page18#enu2#fld35" name="foto" type="blob" modifiable="true" attribute="User#att3"/>
+      <Field id="sv1#area2#page18#enu2#fld36" name="ip" type="string" modifiable="true" attribute="User#att4"/>
+      <SelectionField id="sv1#area2#page18#enu2#sfld3" name="grupo" type="string" modifiable="true"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="15" gr:y="115" id="sv1#area2#page18#seu2" name="Selector2" entity="Group">
+      <Link id="sv1#area2#page18#seu2#ln24" name="Flow24" to="sv1#area2#page18#enu2" type="transport" validate="true">
+        <LinkParameter id="sv1#area2#page18#seu2#ln24#par1" name="groupName_grupo [label]" source="groupNameArray" target="sv1#area2#page18#enu2#sfld3_label"/>
+        <LinkParameter id="sv1#area2#page18#seu2#ln24#par2" name="oid_grupo [output]" source="groupOIDArray" target="sv1#area2#page18#enu2#sfld3_output"/>
+      </Link>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page18#enu2">
+          <layout:Field field="sv1#area2#page18#enu2#fld17"/>
+          <layout:Field field="sv1#area2#page18#enu2#fld18"/>
+          <layout:Field field="sv1#area2#page18#enu2#fld19"/>
+          <layout:Field field="sv1#area2#page18#enu2#fld20"/>
+          <layout:Field field="sv1#area2#page18#enu2#fld21"/>
+          <layout:Field field="sv1#area2#page18#enu2#fld35"/>
+          <layout:Field field="sv1#area2#page18#enu2#fld36"/>
+          <layout:Field field="sv1#area2#page18#enu2#sfld3"/>
+          <layout:Link link="sv1#area2#page18#enu2#ln23"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>
