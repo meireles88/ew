@@ -1,0 +1,70 @@
+<MasterPage xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="445" gr:y="225" id="sv1#area3#mpage3" name="MasterPage 3">
+  <ContentUnits>
+    <GetUnit gr:x="0" gr:y="0" id="sv1#area3#mpage3#gtu4" name="Get4" contextParameters="UserCtxParam">
+      <Link id="sv1#area3#mpage3#gtu4#ln11" name="Flow11" to="sv1#area3#mpage3#seu4" automaticCoupling="true" type="transport" validate="true"/>
+    </GetUnit>
+    <SelectorUnit gr:x="105" gr:y="20" id="sv1#area3#mpage3#seu4" name="Selector4" entity="User">
+      <Selector id="sv1#area3#mpage3#seu4#su6" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area3#mpage3#seu4#su6#kcond6" name="KeyCondition6" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area3#mpage3#seu4#ln12" name="Flow12" to="sv1#area3#mpage3#scu3" type="transport" validate="true">
+        <LinkParameter id="sv1#area3#mpage3#seu4#ln12#par7" name="userName_userName" source="userNameArray" target="sv1#area3#mpage3#scu3.userName"/>
+      </Link>
+    </SelectorUnit>
+    <ScriptUnit gr:x="105" gr:y="135" id="sv1#area3#mpage3#scu3" name="Script3">
+      <ScriptUnitText xml:space="preserve">#input String userName
+#output String message
+
+def message = ""
+
+if(userName=="null"){
+	message += "Bem-vindo! Registe-se!"
+}
+else{
+	message += "Bem-vindo " + userName
+}
+
+return ["message": message]</ScriptUnitText>
+      <Link id="sv1#area3#mpage3#scu3#ln14" name="Flow14" to="sv1#area3#mpage3#mssu7" type="transport" validate="true">
+        <LinkParameter id="sv1#area3#mpage3#scu3#ln14#par8" name="message_Shown Messages" source="result(message)" target="sv1#area3#mpage3#mssu7.shownMessages"/>
+      </Link>
+    </ScriptUnit>
+    <MultiMessageUnit gr:x="120" gr:y="220" id="sv1#area3#mpage3#mssu7" name="Message7" linkOrder="sv1#area3#mpage3#mssu7#ln17">
+      <Message xml:space="preserve">lol</Message>
+      <Link id="sv1#area3#mpage3#mssu7#ln17" name="Logout" to="sv1#lou3" automaticCoupling="true" type="normal" validate="true"/>
+    </MultiMessageUnit>
+  </ContentUnits>
+  <layout:CustomLocation name="Left">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#area3#mpage3#mssu7">
+            <layout:Link link="sv1#area3#mpage3#mssu7#ln17"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:CustomLocation name="Page Links">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#area3#mpage3#mssu7">
+            <layout:Link link="sv1#area3#mpage3#mssu7#ln17"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+  <layout:CustomLocation name="Right">
+    <layout:Grid containerType="cell">
+      <layout:Row>
+        <layout:Cell>
+          <layout:Unit unitId="sv1#area3#mpage3#mssu7">
+            <layout:Link link="sv1#area3#mpage3#mssu7#ln17"/>
+          </layout:Unit>
+        </layout:Cell>
+      </layout:Row>
+    </layout:Grid>
+  </layout:CustomLocation>
+</MasterPage>

@@ -1,0 +1,50 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="970" gr:y="150" id="sv1#area1#page11" name="Consultar Ideia" protected="false">
+  <ContentUnits>
+    <DataUnit gr:x="0" gr:y="0" id="sv1#area1#page11#dau4" name="Detalhes da Ideia" entity="ent2" displayAttributes="ent2#att14 ent2#att15 ent2#att18 ent2#att19" linkOrder="sv1#area1#page11#dau4#ln60">
+      <Selector id="sv1#area1#page11#dau4#su8" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv1#area1#page11#dau4#su8#kcond7" name="KeyCondition7" predicate="in" implied="false"/>
+      </Selector>
+      <Link id="sv1#area1#page11#dau4#ln60" name="Consultar autor" to="sv1#area1#page20#dau5" type="normal" validate="true">
+        <LinkParameter id="sv1#area1#page11#dau4#ln60#par54" name="IdeiaToUser.oid_KeyCondition29 [oid]" source="data.rel8#role16_userOID" target="sv1#area1#page20#dau5#su37#kcond29.userOID"/>
+      </Link>
+    </DataUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area1#page11#dau4">
+          <layout:Attribute attribute="ent2#att14"/>
+          <layout:Attribute attribute="ent2#att15"/>
+          <layout:Attribute attribute="ent2#att18"/>
+          <layout:Attribute attribute="ent2#att19"/>
+          <layout:Link link="sv1#area1#page11#dau4#ln60"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,55 @@
+[18 Apr 2014 21:52:59] DEBUG Executing SQL script
+[18 Apr 2014 21:52:59] INFO ================================================================================
+[18 Apr 2014 21:52:59] INFO outputPath= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/UpdateSQL.xml'
+[18 Apr 2014 21:52:59] INFO onError= 'stop'
+[18 Apr 2014 21:52:59] INFO statementSeparator= ';'
+[18 Apr 2014 21:52:59] INFO derby.system.home= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/.metadata/.plugins/com.webratio.commons.db/derby'
+[18 Apr 2014 21:52:59] INFO password= 'phpd3v3l0p3r'
+[18 Apr 2014 21:52:59] INFO url= 'jdbc:mysql://localhost:3306/ew_ideias'
+[18 Apr 2014 21:52:59] INFO username= 'root'
+[18 Apr 2014 21:52:59] INFO autoCommit= 'false'
+[18 Apr 2014 21:52:59] INFO outputLogPath= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/UpdateSQL.xml.log'
+[18 Apr 2014 21:52:59] INFO driverClass= 'com.mysql.jdbc.Driver'
+[18 Apr 2014 21:52:59] INFO encoding= ''
+[18 Apr 2014 21:52:59] INFO eventSocketPort= '54712'
+[18 Apr 2014 21:52:59] INFO sqlScript= '/Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/UpdateSQL.sql'
+[18 Apr 2014 21:52:59] INFO ================================================================================
+[18 Apr 2014 21:52:59] INFO Connecting to the Database...
+[18 Apr 2014 21:52:59] INFO Database connection estabilished
+[18 Apr 2014 21:52:59] INFO transaction isolation: 4
+[18 Apr 2014 21:52:59] DEBUG ================================================================================
+[18 Apr 2014 21:52:59] DEBUG Executing SQL script file: /Applications/WebRatio_Personal_7.2.x64bit.MacOSX/WebRatio/WebRatio.app/Contents/MacOS/workspace/EW_TP/.Temp~/UpdateSQL.sql
+[18 Apr 2014 21:52:59] DEBUG Executing statement:  create table `group` ( `oid`  integer  not null, `groupname`  varchar(255), primary key (`oid`) )
+[18 Apr 2014 21:52:59] DEBUG Executing statement:    create table `module` ( `oid`  integer  not null, `moduleid`  varchar(255), `modulename`  varchar(255), primary key (`oid`) )
+[18 Apr 2014 21:52:59] DEBUG Executing statement:    create table `user` ( `oid`  integer  not null, `username`  varchar(255), `password`  varchar(255), `email`  varchar(255), `datanascimento`  date, `morada`  varchar(255), `foto`  varchar(255), `ip`  varchar(255), `datacriacao`  date, `dataultimoacesso`  date, `dataultimaedicao`  date, primary key (`oid`) )
+[18 Apr 2014 21:53:00] DEBUG Executing statement:    create table `grupoorcamental` ( `oid`  integer  not null, `titulo`  varchar(255), `descricao`  varchar(255), `datainsercao`  date, `dataedicao`  date, primary key (`oid`) )
+[18 Apr 2014 21:53:00] DEBUG Executing statement:    create table `ideia` ( `oid`  integer  not null, `titulo`  varchar(255), `descricao`  varchar(255), `datainsercao`  date, `dataedicao`  date, `rating`  integer, `quantia`  integer, `aprovada`  bit, primary key (`oid`) )
+[18 Apr 2014 21:53:00] DEBUG Executing statement:    create table `voto` ( `oid`  integer  not null, primary key (`oid`) )
+[18 Apr 2014 21:53:00] DEBUG Executing statement:    create table `categoria` ( `oid`  integer  not null, `titulo`  varchar(255), `descricao`  varchar(255), `datainsercao`  date, `dataedicao`  date, primary key (`oid`) )
+[18 Apr 2014 21:53:00] DEBUG Executing statement:    create table `tag` ( `oid`  integer  not null, `nome`  varchar(255), primary key (`oid`) )
+[18 Apr 2014 21:53:00] DEBUG Executing statement:    alter table `group`  add column  `module_oid`  integer
+[18 Apr 2014 21:53:00] DEBUG Executing statement:  alter table `group`   add index fk_group_module (`module_oid`), add constraint fk_group_module foreign key (`module_oid`) references `module` (`oid`)
+[18 Apr 2014 21:53:01] DEBUG Executing statement:    create table `group_module` ( `group_oid`  integer not null, `module_oid`  integer not null, primary key (`group_oid`, `module_oid`) )
+[18 Apr 2014 21:53:01] DEBUG Executing statement:  alter table `group_module`   add index fk_group_module_group (`group_oid`), add constraint fk_group_module_group foreign key (`group_oid`) references `group` (`oid`)
+[18 Apr 2014 21:53:01] DEBUG Executing statement:  alter table `group_module`   add index fk_group_module_module (`module_oid`), add constraint fk_group_module_module foreign key (`module_oid`) references `module` (`oid`)
+[18 Apr 2014 21:53:01] DEBUG Executing statement:    alter table `user`  add column  `group_oid`  integer
+[18 Apr 2014 21:53:01] DEBUG Executing statement:  alter table `user`   add index fk_user_group (`group_oid`), add constraint fk_user_group foreign key (`group_oid`) references `group` (`oid`)
+[18 Apr 2014 21:53:01] DEBUG Executing statement:    create table `user_group` ( `user_oid`  integer not null, `group_oid`  integer not null, primary key (`user_oid`, `group_oid`) )
+[18 Apr 2014 21:53:02] DEBUG Executing statement:  alter table `user_group`   add index fk_user_group_user (`user_oid`), add constraint fk_user_group_user foreign key (`user_oid`) references `user` (`oid`)
+[18 Apr 2014 21:53:02] DEBUG Executing statement:  alter table `user_group`   add index fk_user_group_group (`group_oid`), add constraint fk_user_group_group foreign key (`group_oid`) references `group` (`oid`)
+[18 Apr 2014 21:53:02] DEBUG Executing statement:    alter table `ideia`  add column  `categoria_oid`  integer
+[18 Apr 2014 21:53:02] DEBUG Executing statement:  alter table `ideia`   add index fk_ideia_categoria (`categoria_oid`), add constraint fk_ideia_categoria foreign key (`categoria_oid`) references `categoria` (`oid`)
+[18 Apr 2014 21:53:02] DEBUG Executing statement:    alter table `ideia`  add column  `tag_oid`  integer
+[18 Apr 2014 21:53:02] DEBUG Executing statement:  alter table `ideia`   add index fk_ideia_tag (`tag_oid`), add constraint fk_ideia_tag foreign key (`tag_oid`) references `tag` (`oid`)
+[18 Apr 2014 21:53:02] DEBUG Executing statement:    alter table `ideia`  add column  `grupoorcamental_oid`  integer
+[18 Apr 2014 21:53:03] DEBUG Executing statement:  alter table `ideia`   add index fk_ideia_grupoorcamental (`grupoorcamental_oid`), add constraint fk_ideia_grupoorcamental foreign key (`grupoorcamental_oid`) references `grupoorcamental` (`oid`)
+[18 Apr 2014 21:53:03] DEBUG Executing statement:    alter table `voto`  add column  `ideia_oid`  integer
+[18 Apr 2014 21:53:03] DEBUG Executing statement:  alter table `voto`   add index fk_voto_ideia (`ideia_oid`), add constraint fk_voto_ideia foreign key (`ideia_oid`) references `ideia` (`oid`)
+[18 Apr 2014 21:53:03] DEBUG Executing statement:    alter table `voto`  add column  `user_oid`  integer
+[18 Apr 2014 21:53:03] DEBUG Executing statement:  alter table `voto`   add index fk_voto_user (`user_oid`), add constraint fk_voto_user foreign key (`user_oid`) references `user` (`oid`)
+[18 Apr 2014 21:53:03] DEBUG Executing statement:    alter table `ideia`  add column  `user_oid`  integer
+[18 Apr 2014 21:53:04] DEBUG Executing statement:  alter table `ideia`   add index fk_ideia_user (`user_oid`), add constraint fk_ideia_user foreign key (`user_oid`) references `user` (`oid`)
+[18 Apr 2014 21:53:04] DEBUG ================================================================================
+[18 Apr 2014 21:53:04] DEBUG SQL SCRIPT SUCCESSFULLY EXECUTED
+[18 Apr 2014 21:53:04] INFO Database connection closed
+[18 Apr 2014 21:53:04] DEBUG Total time: 5177 milliseconds

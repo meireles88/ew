@@ -1,0 +1,31 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="125" gr:y="345" id="sv1#area2#page16" name="Editar Grupo Or&#231;amental" protected="true">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#area2#page16#enu10" name="Editar" entity="ent1" linkOrder="sv1#area2#page16#enu10#ln45">
+      <Link id="sv1#area2#page16#enu10#ln45" name="Editar" to="sv1#area2#mfu4" automaticCoupling="true" type="normal" validate="true"/>
+      <Field id="sv1#area2#page16#enu10#fld33" name="titulo" type="string" modifiable="true" attribute="ent1#att9"/>
+      <Field id="sv1#area2#page16#enu10#fld34" name="descricao" type="string" modifiable="true" attribute="ent1#att10"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page16#enu10">
+          <layout:Link link="sv1#area2#page16#enu10#ln45"/>
+          <layout:Field field="sv1#area2#page16#enu10#fld33"/>
+          <layout:Field field="sv1#area2#page16#enu10#fld34"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

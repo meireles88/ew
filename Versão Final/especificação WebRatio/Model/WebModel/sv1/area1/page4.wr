@@ -1,0 +1,56 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="190" id="sv1#area1#page4" name="Registo" landmark="true" ignoreMasterPage="false">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#area1#page4#enu3" name="Registar" entity="User" linkOrder="sv1#area1#page4#enu3#ln4" fieldOrder="sv1#area1#page4#enu3#fld1 sv1#area1#page4#enu3#fld2 sv1#area1#page4#enu3#fld3 sv1#area1#page4#enu3#fld4 sv1#area1#page4#enu3#fld5 sv1#area1#page4#enu3#fld6">
+      <Link id="sv1#area1#page4#enu3#ln4" name="Registar" to="sv1#area1#cru2" type="normal" validate="true" automaticCoupling="true"/>
+      <Field id="sv1#area1#page4#enu3#fld1" name="userName" type="string" modifiable="true" attribute="userName"/>
+      <Field id="sv1#area1#page4#enu3#fld2" name="password" type="password" modifiable="true" attribute="password"/>
+      <Field id="sv1#area1#page4#enu3#fld3" name="email" type="string" modifiable="true" attribute="email"/>
+      <Field id="sv1#area1#page4#enu3#fld4" name="dataNascimento" type="date" modifiable="true" attribute="User#att1"/>
+      <Field id="sv1#area1#page4#enu3#fld5" name="morada" type="string" modifiable="true" attribute="User#att2"/>
+      <Field id="sv1#area1#page4#enu3#fld6" name="foto" type="blob" modifiable="true" attribute="User#att3"/>
+    </EntryUnit>
+    <SelectorUnit gr:x="105" gr:y="0" id="sv1#area1#page4#seu6" name="Selector6" entity="Group">
+      <Link id="sv1#area1#page4#seu6#ln25" name="Flow25" to="sv1#area1#cnu3" automaticCoupling="true" type="transport" validate="true"/>
+    </SelectorUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area1#page4#enu3">
+          <layout:Link link="sv1#area1#page4#enu3#ln4"/>
+          <layout:Field field="sv1#area1#page4#enu3#fld1"/>
+          <layout:Field field="sv1#area1#page4#enu3#fld2"/>
+          <layout:Field field="sv1#area1#page4#enu3#fld3"/>
+          <layout:Field field="sv1#area1#page4#enu3#fld4"/>
+          <layout:Field field="sv1#area1#page4#enu3#fld5"/>
+          <layout:Field field="sv1#area1#page4#enu3#fld6"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

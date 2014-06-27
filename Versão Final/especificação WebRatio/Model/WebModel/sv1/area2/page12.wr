@@ -1,0 +1,58 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="260" gr:y="510" id="sv1#area2#page12" name="Gest&#227;o de Categorias e Grupos Or&#231;amentais" landmark="true" linkOrder="sv1#area2#page12#ln40" protected="true">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="190" gr:y="10" id="sv1#area2#page12#pwu7" name="Categorias" sortable="true" checkable="false" useCountQuery="false" entity="ent4" linkOrder="sv1#area2#page12#pwu7#ln33 sv1#area2#page12#pwu7#ln35" displayAttributes="ent4#att22 ent4#att23">
+      <Link id="sv1#area2#page12#pwu7#ln33" name="Editar" to="sv1#area2#page14#enu8" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area2#page12#pwu7#ln35" name="Apagar" to="sv1#area2#dlu2" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+    <PowerIndexUnit gr:x="0" gr:y="0" id="sv1#area2#page12#pwu12" name="GruposOr&#231;amentais" sortable="true" checkable="false" useCountQuery="false" entity="ent1" displayAttributes="ent1#att9 ent1#att10" linkOrder="sv1#area2#page12#pwu12#ln44 sv1#area2#page12#pwu12#ln53">
+      <Link id="sv1#area2#page12#pwu12#ln44" name="Editar" to="sv1#area2#page16#enu10" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv1#area2#page12#pwu12#ln53" name="Apagar" to="sv1#area2#dlu5" automaticCoupling="true" type="normal" validate="true"/>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page12#pwu7">
+          <layout:Link link="sv1#area2#page12#pwu7#ln33"/>
+          <layout:Link link="sv1#area2#page12#pwu7#ln35"/>
+          <layout:Attribute attribute="ent4#att22"/>
+          <layout:Attribute attribute="ent4#att23"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page12#pwu12">
+          <layout:Attribute attribute="ent1#att9"/>
+          <layout:Attribute attribute="ent1#att10"/>
+          <layout:Link link="sv1#area2#page12#pwu12#ln44"/>
+          <layout:Link link="sv1#area2#page12#pwu12#ln53"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+  <Link id="sv1#area2#page12#ln36" name="Criar Categoria" to="sv1#area2#page13" type="normal" automaticCoupling="true" validate="true"/>
+  <Link id="sv1#area2#page12#ln40" name="Criar Grupo Or&#231;amental" to="sv1#area2#page15" automaticCoupling="true" type="normal" validate="true"/>
+</Page>

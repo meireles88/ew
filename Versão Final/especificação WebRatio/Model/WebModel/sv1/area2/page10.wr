@@ -1,0 +1,37 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="425" gr:y="0" id="sv1#area2#page10" name="Editar Ideia" protected="true">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#area2#page10#enu6" name="Editar Ideia" entity="ent2" linkOrder="sv1#area2#page10#enu6#ln28">
+      <Link id="sv1#area2#page10#enu6#ln28" name="Guardar" to="sv1#area2#mfu1" automaticCoupling="true" type="normal" validate="true"/>
+      <Field id="sv1#area2#page10#enu6#fld22" name="titulo" type="string" modifiable="true" attribute="ent2#att14"/>
+      <Field id="sv1#area2#page10#enu6#fld23" name="descricao" type="string" modifiable="true" attribute="ent2#att15"/>
+      <Field id="sv1#area2#page10#enu6#fld24" name="rating" type="integer" modifiable="true" attribute="ent2#att18"/>
+      <Field id="sv1#area2#page10#enu6#fld25" name="quantia" type="integer" modifiable="true" attribute="ent2#att19"/>
+      <Field id="sv1#area2#page10#enu6#fld26" name="aprovada" type="boolean" modifiable="true" attribute="ent2#att28"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page10#enu6">
+          <layout:Link link="sv1#area2#page10#enu6#ln28"/>
+          <layout:Field field="sv1#area2#page10#enu6#fld22"/>
+          <layout:Field field="sv1#area2#page10#enu6#fld23"/>
+          <layout:Field field="sv1#area2#page10#enu6#fld24"/>
+          <layout:Field field="sv1#area2#page10#enu6#fld25"/>
+          <layout:Field field="sv1#area2#page10#enu6#fld26"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

@@ -1,0 +1,37 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="5" gr:y="200" id="sv1#area4#page8" name="Editar Ideia" protected="true">
+  <ContentUnits>
+    <EntryUnit gr:x="0" gr:y="0" id="sv1#area4#page8#enu1" name="Editar Ideia" entity="ent2" linkOrder="sv1#area4#page8#enu1#ln38" fieldOrder="sv1#area4#page8#enu1#fld9 sv1#area4#page8#enu1#fld10 sv1#area4#page8#enu1#fld11 sv1#area4#page8#enu1#fld15 sv1#area4#page8#enu1#fld16">
+      <Field id="sv1#area4#page8#enu1#fld9" name="titulo" type="string" modifiable="true" attribute="ent2#att14"/>
+      <Field id="sv1#area4#page8#enu1#fld10" name="descricao" type="string" modifiable="true" attribute="ent2#att15"/>
+      <Field id="sv1#area4#page8#enu1#fld11" name="rating" type="integer" modifiable="true" attribute="ent2#att18"/>
+      <Field id="sv1#area4#page8#enu1#fld15" name="quantia" type="integer" modifiable="true" attribute="ent2#att19"/>
+      <Field id="sv1#area4#page8#enu1#fld16" name="aprovada" type="boolean" modifiable="true" attribute="ent2#att28"/>
+      <Link id="sv1#area4#page8#enu1#ln38" name="Editar" to="sv1#area4#mfu2" type="normal" validate="true" automaticCoupling="true"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area4#page8#enu1">
+          <layout:Link link="sv1#area4#page8#enu1#ln38"/>
+          <layout:Field field="sv1#area4#page8#enu1#fld9"/>
+          <layout:Field field="sv1#area4#page8#enu1#fld10"/>
+          <layout:Field field="sv1#area4#page8#enu1#fld11"/>
+          <layout:Field field="sv1#area4#page8#enu1#fld15"/>
+          <layout:Field field="sv1#area4#page8#enu1#fld16"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>

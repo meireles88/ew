@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Warnings> 
+  <Warning xpath="id('sv1#area4#page6#qu1#ln5')" rootXPath="id('sv1')" key="AUTOMATIC_COUPLING_WITHOUT_EFFECT" label="Flow5"> 
+    <Message>Neither explicit nor implicit parameters' bindings could be found for the flow 'Flow5'</Message>  
+    <Resolution class="com.webratio.ide.ui.resources.ChangeAttributeResolutionGenerator" attribute="automaticCoupling" value="">Remove the 'Automatic Coupling' property</Resolution> 
+  </Warning>  
+  <Warning xpath="id('sv1#lgu1#kln2')" rootXPath="id('sv1')" key="AUTOMATIC_COUPLING_WITHOUT_EFFECT" label="KOFlow2"> 
+    <Message>Neither explicit nor implicit parameters' bindings could be found for the flow 'KOFlow2'</Message>  
+    <Resolution class="com.webratio.ide.ui.resources.ChangeAttributeResolutionGenerator" attribute="automaticCoupling" value="">Remove the 'Automatic Coupling' property</Resolution> 
+  </Warning>  
+  <Warning xpath="id('sv1#lgu1')" rootXPath="id('sv1')" error="false" label="Login1" key="NO_OUTGOING_OK_LINKS"> 
+    <Message>No outgoing OK flow(s) for the operation 'Login1'</Message> 
+  </Warning>  
+  <Warning xpath="id('sv1#lou3')" rootXPath="id('sv1')" error="false" label="Logout3" key="NO_OUTGOING_KO_LINKS"> 
+    <Message>No outgoing KO flow(s) for the operation 'Logout3'</Message> 
+  </Warning>  
+  <Warning xpath="id('sv1#area1#cru4')" rootXPath="id('sv1')" error="false" label="Create4" key="NO_OUTGOING_KO_LINKS"> 
+    <Message>No outgoing KO flow(s) for the operation 'Create4'</Message> 
+  </Warning>  
+  <Warning xpath="id('sv1#area1#cnu1')" rootXPath="id('sv1')" error="false" label="Connect1" key="NO_OUTGOING_KO_LINKS"> 
+    <Message>No outgoing KO flow(s) for the operation 'Connect1'</Message> 
+  </Warning>  
+  <Warning xpath="id('sv1#area1#cnu2')" rootXPath="id('sv1')" error="false" label="Connect2" key="NO_OUTGOING_KO_LINKS"> 
+    <Message>No outgoing KO flow(s) for the operation 'Connect2'</Message> 
+  </Warning>  
+  <Warning error="false" xpath="id('sv1#area1#page1#pwu2')" rootXPath="id('sv1')" key="UNSPECIFIED_SORTING_ATTRIBUTE" label="Lista de Ideias"> 
+    <Message>Sorting attribute are unspecified for the component 'Lista de Ideias'</Message> 
+  </Warning>  
+  <Warning error="false" xpath="id('sv1#area3#page3#pwu1')" rootXPath="id('sv1')" key="UNSPECIFIED_SORTING_ATTRIBUTE" label="Lista de Utilizadores"> 
+    <Message>Sorting attribute are unspecified for the component 'Lista de Utilizadores'</Message> 
+  </Warning>  
+  <Warning error="false" xpath="id('sv1#area4#page6#mdu1')" rootXPath="id('sv1')" key="UNSPECIFIED_SORTING_ATTRIBUTE" label="MultipleDetails1"> 
+    <Message>Sorting attribute are unspecified for the component 'MultipleDetails1'</Message> 
+  </Warning> 
+</Warnings>
