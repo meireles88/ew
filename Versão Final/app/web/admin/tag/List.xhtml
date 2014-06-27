@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/admin/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTagTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="Gestão de Tags" style="font-size: large">
+
+
+                <h:form style="font-size: small">
+                    <br/>
+
+                    <p:dataTable id="TagTable" value="#{tagController.items}" var="item" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" widgetVar="TagTable" emptyMessage="#{bundle.ListTagEmpty}" filteredValue="#{tagController.filtered}" selection="#{tagController.selected}" selectionMode="single" rowKey="#{item.oid}">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Procurar: " />
+                                <p:inputText id="globalFilter" onkeyup="TagTable.filter()" style="width:150px"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+
+                        <p:column headerText="#{bundle.ListTagTitle_nome}" filterBy="nome" sortBy="nome" filterMatchMode="contains">
+
+
+                            <h:outputText value="#{item.nome}"/>
+
+                        </p:column>
+                        <p:column style="width:3%;text-align: center">
+
+                            <p:commandLink update=":form2:pgrid" oncomplete="carDialog.show()" actionListener="#{tagController.setSelected(item)}">
+                                <span class="ui-icon ui-icon-search"></span>
+                            </p:commandLink>
+                            
+                            <p:commandLink update=":form3:pgrid" oncomplete="carDialog2.show()" actionListener="#{tagController.setSelected(item)}" >
+                                    <span class="ui-icon ui-icon-pencil"></span>
+                                </p:commandLink>
+                            
+                            <p:commandLink action="#{tagController.destroy}" title="#{bundle.ListUserDestroyLink}" update="TagTable">
+                                <span class="ui-icon ui-icon-trash"></span>
+                                <p:confirm header="Confirmação" message="Tem a certeza que quer apagar?" icon="ui-icon-alert" />
+                            </p:commandLink>
+                        
+
+                            <p:confirmDialog global="true">
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                            </p:confirmDialog>
+
+                        </p:column>
+                    </p:dataTable>
+
+                    <br />
+
+                </h:form>
+                
+                
+                <h:form id="form2" style="font-size: small">
+                    <p:dialog header="Detalhes da Tag" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid id="pgrid"  columns="2" rendered="#{not empty tagController.selected}" columnClasses="label,value">
+
+
+                                <h:outputText value="Nome:"/>
+                        <h:outputText value="#{tagController.selected.nome}" title="#{bundle.ViewCategoriaTitle_titulo}"/>
+
+
+
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                
+                <h:form id="form3" style="font-size: small">
+                    <p:dialog header="Editar Tag" widgetVar="carDialog2" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid id="pgrid"  columns="2" rendered="#{not empty tagController.selected}" columnClasses="label,value">
+                             
+                             <h:outputLabel value="Nome:" for="titulo" />
+                        <p:inputText id="titulo" value="#{tagController.selected.nome}" title="#{bundle.EditCategoriaTitle_titulo}" />
+
+
+                                
+                            </p:panelGrid>
+
+<p:commandButton action="#{tagController.update}" value="#{bundle.EditCategoriaSaveLink}" ajax="false" icon="ui-icon-disk"/>
+
+                        
+
+
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

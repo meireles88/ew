@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/admin/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateIdeiaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="#{bundle.CreateIdeiaTitle}">
+
+                <h:form>
+
+
+                    <h:panelGrid columns="2">
+
+
+                        <h:outputLabel value="#{bundle.CreateIdeiaLabel_titulo}" for="titulo" />
+
+                        <p:inputText id="titulo" value="#{ideiaController.selected.titulo}" title="#{bundle.CreateIdeiaTitle_titulo}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateIdeiaLabel_descricao}" for="descricao" />
+
+                        <p:inputText id="descricao" value="#{ideiaController.selected.descricao}" title="#{bundle.CreateIdeiaTitle_descricao}" />
+
+
+
+
+
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateIdeiaLabel_quantia}" for="quantia" />
+
+                        <p:inputText id="quantia" value="#{ideiaController.selected.quantia}" title="#{bundle.CreateIdeiaTitle_quantia}" />
+
+
+
+
+
+
+
+                        
+
+
+
+
+                        <p:outputLabel value="Tags:" for="themes" />
+        <p:autoComplete id="themes" multiple="true" value="#{ideiaController.selectedThemes}" completeMethod="#{ideiaController.completeTheme}"
+                        var="theme" itemLabel="#{theme}" itemValue="#{theme}" forceSelection="true">
+ 
+            <p:column>
+                <h:outputText value="#{theme}" />
+            </p:column>
+        </p:autoComplete>
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateIdeiaLabel_grupoorcamentalOid}" for="grupoorcamentalOid"  />
+
+
+                        <p:selectOneMenu id="grupoorcamentalOid" value="#{ideiaController.selected.grupoorcamentalOid}" converter="GrupoorcamentalConverter">
+
+                            <f:selectItem itemLabel="#{bundle.SelectOne}" itemValue="#{null}" />
+                            <f:selectItems value="#{grupoorcamentalController.itemsToConvert}" var="grupoorcamental" itemLabel="#{grupoorcamental.titulo}" itemValue="#{grupoorcamental}"/>
+
+
+                        </p:selectOneMenu>
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateIdeiaLabel_categoriaOid}" for="categoriaOid"/>
+
+
+                        <p:selectOneMenu id="categoriaOid" value="#{ideiaController.selected.categoriaOid}" converter="CategoriaConverter">
+
+                            <f:selectItem itemLabel="#{bundle.SelectOne}" itemValue="#{null}" />
+                            <f:selectItems value="#{categoriaController.itemsToConvert}" var="categoria" itemLabel="#{categoria.titulo}" itemValue="#{categoria}"/>
+
+                            
+                        </p:selectOneMenu>
+
+
+                    </h:panelGrid>
+
+                    <br />
+                    <p:commandButton action="#{ideiaController.create}" value="#{bundle.CreateIdeiaSaveLink}" ajax="false" icon="ui-icon-disk"/>
+                    <br />
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

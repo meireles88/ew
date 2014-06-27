@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTagTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <h:form>
+                <p:button outcome="/admin/index" value="#{bundle.EditTagIndexLink}" icon="ui-icon-home"/>
+                <p:commandButton action="#{tagController.prepareList}" value="#{bundle.EditTagShowAllLink}" ajax="false" icon="ui-icon-arrowthick-1-w" immediate="true"/>
+            </h:form>
+
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="#{bundle.EditTagTitle}">
+
+                <h:form>
+                    <h:panelGrid columns="2">
+
+
+
+                        <h:outputLabel value="#{bundle.EditTagLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{tagController.selected.nome}" title="#{bundle.EditTagTitle_nome}" />
+
+                    </h:panelGrid>
+                    <br/>
+                    <p:commandButton action="#{tagController.update}" value="#{bundle.EditTagSaveLink}" ajax="false" icon="ui-icon-disk"/>
+                    <p:button outcome="View" value="#{bundle.EditTagViewLink}" icon="ui-icon-document"/>
+                    <br />
+
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

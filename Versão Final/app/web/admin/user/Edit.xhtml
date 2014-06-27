@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/admin/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditUserTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="Editar Perfil" style="font-size: large">
+
+                <h:form style="font-size: small" styleClass="left form_to_photo">
+                    <h:panelGrid columns="2">
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_username}" for="username" />
+
+                        <p:inputText id="username" value="#{userController.selected.username}" title="#{bundle.CreateUserTitle_username}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_password}" for="password" />
+
+                        <p:inputText id="password" type="password" value="#{userController.selected.password}" title="#{bundle.CreateUserTitle_password}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_email}" for="email" />
+
+                        <p:inputText id="email" value="#{userController.selected.email}" title="#{bundle.CreateUserTitle_email}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_datanascimento}" for="datanascimento" />
+
+
+                        <p:calendar id="datanascimento" value="#{userController.selected.datanascimento}" title="#{bundle.CreateUserTitle_datanascimento}" yearRange="1900:2020" navigator="true">
+
+                        </p:calendar>
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_morada}" for="morada" />
+
+                        <p:inputText id="morada" value="#{userController.selected.morada}" title="#{bundle.CreateUserTitle_morada}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_foto}"/>
+
+                        <!--<p:inputText id="foto" value="#{userController.selected.foto}" title="#{bundle.CreateUserTitle_foto}" />-->
+
+
+
+
+
+                    </h:panelGrid>
+                    <br/>
+                    <p:commandButton action="#{userController.update}" value="#{bundle.EditUserSaveLink}" ajax="false" icon="ui-icon-disk"/>
+                    <p:button outcome="View" value="#{bundle.EditUserViewLink}" icon="ui-icon-document"/>
+                    <br />
+
+                </h:form>
+                <h:panelGrid columns="2" styleClass="left form_with_photo">
+                    <h:outputLabel value="#{bundle.CreateUserLabel_foto}" style="font-size: small" />
+
+
+                    <h:form prependId="true" enctype="multipart/form-data" style="font-size: small">
+                        <p:fileUpload fileUploadListener="#{userController.handleFileUpload}" mode="advanced"/>
+
+                    </h:form>
+                </h:panelGrid>
+                <div class="clr"></div>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

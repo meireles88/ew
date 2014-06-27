@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewGrupoorcamentalTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <h:form>
+                <p:button outcome="/admin/index" value="#{bundle.ViewGrupoorcamentalIndexLink}" icon="ui-icon-home"/>
+                <p:commandButton action="#{grupoorcamentalController.prepareList}" value="#{bundle.ViewGrupoorcamentalShowAllLink}" ajax="false" icon="ui-icon-arrowthick-1-w" immediate="true"/>
+            </h:form>
+
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="#{bundle.ViewGrupoorcamentalTitle}">
+
+                <h:form>
+                    <h:panelGrid columns="2">
+
+
+
+                        <h:outputText value="#{bundle.ViewGrupoorcamentalLabel_titulo}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.titulo}" title="#{bundle.ViewGrupoorcamentalTitle_titulo}"/>
+
+
+                        <h:outputText value="#{bundle.ViewGrupoorcamentalLabel_descricao}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.descricao}" title="#{bundle.ViewGrupoorcamentalTitle_descricao}"/>
+
+
+                        <h:outputText value="#{bundle.ViewGrupoorcamentalLabel_datainsercao}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.datainsercao}" title="#{bundle.ViewGrupoorcamentalTitle_datainsercao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputText value="#{bundle.ViewGrupoorcamentalLabel_dataedicao}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.dataedicao}" title="#{bundle.ViewGrupoorcamentalTitle_dataedicao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </h:panelGrid>
+                    <br />
+                    <p:commandButton action="#{grupoorcamentalController.destroyAndView}" value="#{bundle.ViewGrupoorcamentalDestroyLink}" icon="ui-icon-trash">
+                        <p:confirm header="Confirmação" message="Tem a certeza que quer apagar?" icon="ui-icon-alert" />
+                    </p:commandButton>
+
+                    <p:confirmDialog global="true">
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                    </p:confirmDialog>
+
+                    <p:button outcome="Edit" value="#{bundle.ViewGrupoorcamentalEditLink}" icon="ui-icon-pencil"/>
+                    <p:commandButton action="#{grupoorcamentalController.prepareCreate}" value="#{bundle.ViewGrupoorcamentalCreateLink}" icon="ui-icon-disk"/>
+                    <br/>
+
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

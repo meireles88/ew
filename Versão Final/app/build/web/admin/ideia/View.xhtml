@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewIdeiaTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <h:form>
+                <p:button outcome="/admin/index" value="#{bundle.ViewIdeiaIndexLink}" icon="ui-icon-home"/>
+                <p:commandButton action="#{ideiaController.prepareList}" value="#{bundle.ViewIdeiaShowAllLink}" ajax="false" icon="ui-icon-arrowthick-1-w" immediate="true"/>
+            </h:form>
+
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="#{bundle.ViewIdeiaTitle}">
+
+                <h:form>
+                    <h:panelGrid columns="2">
+
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_titulo}"/>
+                        <h:outputText value="#{ideiaController.selected.titulo}" title="#{bundle.ViewIdeiaTitle_titulo}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_descricao}"/>
+                        <h:outputText value="#{ideiaController.selected.descricao}" title="#{bundle.ViewIdeiaTitle_descricao}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_datainsercao}"/>
+                        <h:outputText value="#{ideiaController.selected.datainsercao}" title="#{bundle.ViewIdeiaTitle_datainsercao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_dataedicao}"/>
+                        <h:outputText value="#{ideiaController.selected.dataedicao}" title="#{bundle.ViewIdeiaTitle_dataedicao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_rating}"/>
+                        <h:outputText value="#{ideiaController.selected.rating}" title="#{bundle.ViewIdeiaTitle_rating}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_quantia}"/>
+                        <h:outputText value="#{ideiaController.selected.quantia}" title="#{bundle.ViewIdeiaTitle_quantia}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_aprovada}"/>
+                        <h:outputText value="#{ideiaController.selected.aprovada}" title="#{bundle.ViewIdeiaTitle_aprovada}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_userOid}"/>
+                        <h:outputText value="#{ideiaController.selected.userOid.username}" title="#{bundle.ViewIdeiaTitle_userOid}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_tagOid}"/>
+                        <h:outputText value="#{ideiaController.selected.tagOid.nome}" title="#{bundle.ViewIdeiaTitle_tagOid}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_grupoorcamentalOid}"/>
+                        <h:outputText value="#{ideiaController.selected.grupoorcamentalOid.titulo}" title="#{bundle.ViewIdeiaTitle_grupoorcamentalOid}"/>
+
+
+                        <h:outputText value="#{bundle.ViewIdeiaLabel_categoriaOid}"/>
+                        <h:outputText value="#{ideiaController.selected.categoriaOid.titulo}" title="#{bundle.ViewIdeiaTitle_categoriaOid}"/>
+                    </h:panelGrid>
+                    <br />
+                    <p:commandButton action="#{ideiaController.destroyAndView}" value="#{bundle.ViewIdeiaDestroyLink}" icon="ui-icon-trash">
+                        <p:confirm header="Confirmação" message="Tem a certeza que quer apagar?" icon="ui-icon-alert" />
+                    </p:commandButton>
+
+                    <p:confirmDialog global="true">
+                        <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                        <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                    </p:confirmDialog>
+
+                    <p:button outcome="Edit" value="#{bundle.ViewIdeiaEditLink}" icon="ui-icon-pencil"/>
+                    <p:commandButton action="#{ideiaController.prepareCreate}" value="#{bundle.ViewIdeiaCreateLink}" icon="ui-icon-disk"/>
+                    <br/>
+
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,100 @@
+@font-face {
+    font-family: 'quicksandbold';
+    src: url('fonts/quicksand-bold-webfont.eot');
+    src: url('fonts/quicksand-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand-bold-webfont.woff') format('woff'),
+         url('fonts/quicksand-bold-webfont.ttf') format('truetype'),
+         url('fonts/quicksand-bold-webfont.svg#quicksandbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'quicksandregular';
+    src: url('fonts/quicksand-regular-webfont.eot');
+    src: url('fonts/quicksand-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand-regular-webfont.woff') format('woff'),
+         url('fonts/quicksand-regular-webfont.ttf') format('truetype'),
+         url('fonts/quicksand-regular-webfont.svg#quicksandregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('fonts/quicksand-light-webfont.eot');
+    src: url('fonts/quicksand-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/quicksand-light-webfont.woff') format('woff'),
+         url('fonts/quicksand-light-webfont.ttf') format('truetype'),
+         url('fonts/quicksand-light-webfont.svg#quicksandlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+root { 
+    display: block;
+}
+html, body{padding:0; margin: 0;}
+body {
+     font-family:Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #666666;
+}
+.ui-widget-header{ font-family: 'quicksandbold';}
+h1,h2,h3,h4,h5{ color: #469bdd; font-family: 'quicksandbold'; font-weight: normal;}
+a{color: #469bdd;}
+.wrapper{padding: 10px 20px;}
+.ui-widget-content{color: #666666;}
+.ui-widget-content.ui-panel{
+}
+.ui-widget-content.ui-tabs {
+background: transparent;}
+.ui-panel .ui-panel-content {padding: 0.5em !important;}
+/**********LOGIN*************/
+.login_form{
+    /*background-color: #F9F9F9;*/
+    width: 150px;
+    margin: 50px auto;
+    padding: 20px 100px 25px;
+    color: #666666;
+    /*-webkit-box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);*/
+    /*-moz-box-shadow:  0px 0px 10px 0px rgba(50, 50, 50, 0.75);*/
+    /*box-shadow: 0px 0px 10px 0px rgba(50, 50, 50, 0.75);*/
+    
+}
+.btn_login{text-align: center; margin-top:15px;}
+.login_form label{ display: block;line-height: 18px; margin-top: 10px;}
+
+.bold{
+    font-weight: bold;
+}
+
+.right{
+    float: right;
+}
+
+.left{
+    float: left;
+}
+
+.clr{
+    clear: both;
+    float: none;
+}
+#wrap{  width: 994px; margin: 10px auto 0; -webkit-box-shadow: 0px 0px 3px 3px rgba(150, 150, 150, 0.45);
+-moz-box-shadow:    0px 0px 3px 3px rgba(150, 150, 150, 0.45);
+box-shadow:         0px 0px 3px 3px rgba(150, 150, 150, 0.45); padding:10px 15px;}
+.logo{margin-bottom: 10px; width:72px; display: inline-block; vertical-align: baseline; height:72px; background: url(../images/logo.png) top left no-repeat transparent; background-size: 100% auto;}
+.logo a{ width:72px; display: block; height:72px; }
+.logo span{display: inline-block; overflow: hidden; vertical-align: bottom; font-size: 24px; padding-left: 5px; color:#0165c5;}
+.auth_info{color: #999999; overflow: hidden; margin-right: 15px; display: inline-block; font-family: 'quicksandregular';}
+.logout_link{text-decoration: none; color: #a6c9e2;  font-family: 'quicksandbold';}
+.logout_link:hover{color: #2e6e9e;}
+.logout_link span{display: inline-block;}
+.logout_link span:not(.ui-icon){overflow: hidden;}
+.body_container{margin-top: 2px;}
+
+.form_with_photo{margin: 20px 0 0 30px;}
+.form_to_photo{margin: 20px 0 0 0px;}
+
+.ui-menu .ui-widget-header h1, .ui-menu .ui-widget-header h2, .ui-menu .ui-widget-header h3, .ui-menu .ui-widget-header h4, .ui-menu .ui-widget-header h5, .ui-menu .ui-widget-header h6{color: #FFF;}

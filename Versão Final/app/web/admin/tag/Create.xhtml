@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/admin/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTagTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="#{bundle.CreateTagTitle}">
+
+                <h:form>
+
+
+                    <h:panelGrid columns="2">
+
+
+
+                        <h:outputLabel value="#{bundle.CreateTagLabel_nome}" for="nome" />
+
+                        <p:inputText id="nome" value="#{tagController.selected.nome}" title="#{bundle.CreateTagTitle_nome}" />
+
+
+                    </h:panelGrid>
+
+                    <br />
+                    <p:commandButton action="#{tagController.create}" value="#{bundle.CreateTagSaveLink}" ajax="false" icon="ui-icon-disk"/>
+                    <br />
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditGrupoorcamentalTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <h:form>
+                <p:button outcome="/admin/index" value="#{bundle.EditGrupoorcamentalIndexLink}" icon="ui-icon-home"/>
+                <p:commandButton action="#{grupoorcamentalController.prepareList}" value="#{bundle.EditGrupoorcamentalShowAllLink}" ajax="false" icon="ui-icon-arrowthick-1-w" immediate="true"/>
+            </h:form>
+
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="#{bundle.EditGrupoorcamentalTitle}">
+
+                <h:form>
+                    <h:panelGrid columns="2">
+
+
+                        <h:outputLabel value="#{bundle.EditGrupoorcamentalLabel_titulo}" for="titulo" />
+                        <p:inputText id="titulo" value="#{grupoorcamentalController.selected.titulo}" title="#{bundle.EditGrupoorcamentalTitle_titulo}" />
+
+
+
+                        <h:outputLabel value="#{bundle.EditGrupoorcamentalLabel_descricao}" for="descricao" />
+                        <p:inputText id="descricao" value="#{grupoorcamentalController.selected.descricao}" title="#{bundle.EditGrupoorcamentalTitle_descricao}" />
+
+                    </h:panelGrid>
+                    <br/>
+                    <p:commandButton action="#{grupoorcamentalController.update}" value="#{bundle.EditGrupoorcamentalSaveLink}" ajax="false" icon="ui-icon-disk"/>
+                    <p:button outcome="View" value="#{bundle.EditGrupoorcamentalViewLink}" icon="ui-icon-document"/>
+                    <br />
+
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/mod/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUserTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="Dados do Perfil" style="font-size: large">
+
+                <h:form style="font-size: small">
+                    
+                    <br/>
+                    <p:graphicImage value="/uploads/#{userController.selected.foto}" height="150px" width="150px" rendered="#{not empty userController.selected.foto}"/>
+<br/>
+                    <h:panelGrid columns="2">
+
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_username}"/>
+                        <h:outputText value="#{userController.selected.username}" title="#{bundle.ViewUserTitle_username}"/>
+
+                        <h:outputText value="#{bundle.ViewUserLabel_email}"/>
+                        <h:outputText value="#{userController.selected.email}" title="#{bundle.ViewUserTitle_email}"/>
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_datanascimento}"/>
+                        <h:outputText value="#{userController.selected.datanascimento}" title="#{bundle.ViewUserTitle_datanascimento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_morada}"/>
+                        <h:outputText value="#{userController.selected.morada}" title="#{bundle.ViewUserTitle_morada}"/>
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_foto}"/>
+                        <h:outputText value="#{userController.selected.foto}" title="#{bundle.ViewUserTitle_foto}"/>
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_datacriacao}"/>
+                        <h:outputText value="#{userController.selected.datacriacao}" title="#{bundle.ViewUserTitle_datacriacao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_dataultimoacesso}"/>
+                        <h:outputText value="#{userController.selected.dataultimoacesso}" title="#{bundle.ViewUserTitle_dataultimoacesso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+
+                        <h:outputText value="#{bundle.ViewUserLabel_groupOid}"/>
+                        <h:outputText value="#{userController.selected.groupOid.groupname}" title="#{bundle.ViewUserTitle_groupOid}"/>
+                    </h:panelGrid>
+                    <br />
+
+                    <p:button outcome="Edit" value="#{bundle.ViewUserEditLink}" icon="ui-icon-pencil" rendered="#{request.getSession(false).getAttribute('userSession').getUser().getUsername().equals(userController.selected.username)}"/>
+                    <br/>
+
+                </h:form>
+            </p:panel>
+
+            <br/><br/>
+
+
+            <div id="ideiasInseridas">
+                <p:panel header="Ideias inseridas pelo utilizador" style="font-size: large">
+                    <br/>
+                    <h:form style="font-size: small">
+
+
+
+                        <p:dataTable id="IdeiaTable" value="#{ideiaController.userIdeias}" var="item1" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" widgetVar="IdeiaTable" emptyMessage="#{bundle.ListIdeiaEmpty}" filteredValue="#{ideiaController.filteredInseridas}" selection="#{ideiaController.selected}" selectionMode="single" rowKey="#{item1.oid}" >
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Procurar: " />
+                                    <p:inputText id="globalFilter" onkeyup="IdeiaTable.filter()" style="width:150px" />
+                                </p:outputPanel>
+                            </f:facet>
+
+
+
+
+
+
+
+                            <p:column headerText="#{bundle.ListIdeiaTitle_titulo}" filterBy="#{item1.titulo}" sortBy="#{item1.titulo}" filterMatchMode="contains">
+                                <h:outputText value="#{item1.titulo}"/>
+                            </p:column>
+
+
+                            <p:column headerText="#{bundle.ListIdeiaTitle_descricao}" filterBy="#{item1.descricao}" sortBy="#{item1.descricao}" filterMatchMode="contains">
+                                <h:outputText value="#{item1.descricao}"/>
+                            </p:column>
+
+
+
+
+                            <p:column headerText="#{bundle.ListIdeiaTitle_rating}" sortBy="#{item1.rating}" >
+                                <h:outputText value="#{item1.rating}"/>
+                            </p:column>
+
+
+
+                    <p:column headerText="#{bundle.ListIdeiaTitle_grupoorcamentalOid}" filterBy="#{item1.grupoorcamentalOid}" filterOptions="#{grupoorcamentalController.grupoOrcamentalOptions}" filterMatchMode="contains">
+
+
+                        <h:outputText value="#{item1.grupoorcamentalOid.titulo}"/>
+
+                    </p:column>
+
+
+                    <p:column headerText="#{bundle.ListIdeiaTitle_categoriaOid}" filterBy="#{item1.categoriaOid}" filterOptions="#{categoriaController.categoriaOptions}" filterMatchMode="contains">
+
+
+                        <h:outputText value="#{item1.categoriaOid.titulo}"/>
+
+                    </p:column>
+
+                            <p:column headerText="Estado"  sortBy="#{item1.aprovada}" >
+                                <h:outputText value="#{item1.aprovada==true?'Aprovada':'Em avaliação'}"/>
+                            </p:column>
+
+                            <p:column style="width:3%;text-align: center">
+
+                                <p:commandLink update=":form2:pgrid2" oncomplete="PF('carDialog2').show()">
+                                    <f:setPropertyActionListener value="#{item1}" target="#{ideiaController.selected}" />
+                                    <span class="ui-icon ui-icon-search"></span>
+                                </p:commandLink>
+
+                            </p:column>
+
+
+
+
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+            </div>
+
+
+
+
+
+
+            <br />
+
+
+
+            <br/>
+
+            <div id="ultimosVotos">
+
+                <p:panel header="Últimos votos do utilizador" style="font-size: large">
+                    <br/>
+
+                    <h:form style="font-size: small">
+
+
+                        <p:dataTable id="IdeiaTable2" value="#{ideiaController.userIdeiasVotou}" var="item2" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" widgetVar="IdeiaTable2" emptyMessage="#{bundle.ListIdeiaEmpty}" filteredValue="#{ideiaController.filteredVotos}" selection="#{ideiaController.selected}" selectionMode="single" rowKey="#{item2.oid}">
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Procurar: " />
+                                    <p:inputText id="globalFilter" onkeyup="IdeiaTable2.filter()" style="width:150px"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+
+
+
+
+
+
+                            <p:column headerText="#{bundle.ListIdeiaTitle_titulo}" filterBy="#{item2.titulo}" sortBy="#{item2.titulo}" filterMatchMode="contains">
+
+
+                                <h:outputText value="#{item2.titulo}"/>
+
+                            </p:column>
+
+
+                            <p:column headerText="#{bundle.ListIdeiaTitle_descricao}" filterBy="#{item2.descricao}" sortBy="#{item2.descricao}" filterMatchMode="contains">
+
+
+                                <h:outputText value="#{item2.descricao}"/>
+
+                            </p:column>
+
+
+
+
+
+                            <p:column headerText="#{bundle.ListIdeiaTitle_rating}" sortBy="#{item2.rating}" >
+
+
+                                <h:outputText value="#{item2.rating}"/>
+
+                            </p:column>
+
+
+
+                    <p:column headerText="#{bundle.ListIdeiaTitle_grupoorcamentalOid}" filterBy="#{item2.grupoorcamentalOid}" filterOptions="#{grupoorcamentalController.grupoOrcamentalOptions}" filterMatchMode="contains">
+
+
+                        <h:outputText value="#{item2.grupoorcamentalOid.titulo}"/>
+
+                    </p:column>
+
+
+                    <p:column headerText="#{bundle.ListIdeiaTitle_categoriaOid}" filterBy="#{item2.categoriaOid}" filterOptions="#{categoriaController.categoriaOptions}" filterMatchMode="contains">
+
+
+                        <h:outputText value="#{item2.categoriaOid.titulo}"/>
+
+                    </p:column>
+
+                            <p:column style="width:3%;text-align: center">
+
+                                <p:commandLink update=":form2:pgrid2" oncomplete="PF('carDialog2').show()">
+                                    <f:setPropertyActionListener value="#{item2}" target="#{ideiaController.selected}" />
+                                    <span class="ui-icon ui-icon-search"></span>
+                                </p:commandLink>
+
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+            </div>
+
+            <h:form id="form2">
+                <p:dialog header="Detalhes da Ideia" widgetVar="carDialog2" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                    <p:outputPanel id="carDetail2" style="text-align:center;">
+                        <p:panelGrid id="pgrid2" columns="2" rendered="#{not empty ideiaController.selected}" columnClasses="label,value">
+
+
+                            <h:outputText value="Título:" />
+                            <h:outputText value="#{ideiaController.selected.titulo}" />
+
+                            <h:outputText value="Descrição:" />
+                            <h:outputText value="#{ideiaController.selected.descricao}" />
+
+                            <h:outputText value="Data de Criação:" />
+                            <h:outputText value="#{ideiaController.selected.datainsercao}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+
+                            <h:outputText value="Rating:" />
+                            <h:outputText value="#{ideiaController.selected.rating}" />
+
+                            <h:outputText value="Quantia:" />
+                            <h:outputText value="#{ideiaController.selected.quantia}" />
+
+                            <h:outputText value="Categoria:" />
+                            <h:outputText value="#{ideiaController.selected.categoriaOid.titulo}" />
+
+
+
+                            <h:outputText value="Grupo Orçamental:" />
+                            <h:outputText value="#{ideiaController.selected.grupoorcamentalOid.titulo}" />
+                            
+                            <h:outputText value="Tags:" />
+                                <ui:repeat var="item" value="#{ideiaController.selected.tagCollection}">
+                                    <h:outputText value=" #{item.nome} " />
+        </ui:repeat>
+
+                            <h:outputText value="Autor:" />
+                            <p:commandLink action="#{userController.view2(ideiaController.selected.userOid)}" value="#{ideiaController.selected.userOid.username}"/>
+
+                        </p:panelGrid>
+                    </p:outputPanel>
+                </p:dialog>
+
+
+
+                <br />
+            </h:form>
+
+
+
+        </ui:define>
+    </ui:composition>
+
+</html>

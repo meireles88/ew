@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/uregistado/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListUserTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="Lista de Membros" style="font-size: large">
+
+
+                <h:form id="form" style="font-size: small">
+                    <br/>
+
+                    <p:dataTable id="UserTable" value="#{userController.items}" var="item" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" widgetVar="UserTable" emptyMessage="#{bundle.ListUserEmpty}" filteredValue="#{userController.filtered}" selection="#{userController.selected}" selectionMode="single" rowKey="#{item.oid}">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Procurar: " />
+                                <p:inputText id="globalFilter" onkeyup="UserTable.filter()" style="width:150px"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+
+
+
+
+                        <p:column headerText="#{bundle.ListUserTitle_username}" filterBy="#{item.username}" sortBy="#{item.username}" filterMatchMode="contains">
+                            <h:outputText value="#{item.username}"/>
+                        </p:column>
+
+
+                        <p:column headerText="#{bundle.ListUserTitle_email}" filterBy="#{item.email}" sortBy="#{item.email}" filterMatchMode="contains">
+                            <h:outputText value="#{item.email}"/>
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListUserTitle_morada}" filterBy="#{item.morada}" sortBy="#{item.morada}" filterMatchMode="contains">
+                            <h:outputText value="#{item.morada}"/>
+                        </p:column>
+
+                        <p:column headerText="#{bundle.ListUserTitle_datanascimento}"  sortBy="#{item.datanascimento}" >
+                            <h:outputText value="#{item.datanascimento}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </p:column>
+
+
+                        
+
+
+
+
+
+
+                        <p:column headerText="#{bundle.ListUserTitle_groupOid}" filterBy="#{item.groupOid}" filterOptions="#{group1Controller.userOptions}" filterMatchMode="contains">
+                            <h:outputText value="#{item.groupOid.groupname}"/>
+                        </p:column>
+                        <p:column style="width:3%;text-align: center">
+
+                            <p:commandLink update=":form2:pgrid" oncomplete="carDialog.show()" actionListener="#{userController.setSelected(item)}">
+                                <span class="ui-icon ui-icon-search"></span>
+                            </p:commandLink>
+
+                        </p:column>
+                    </p:dataTable>
+
+                    <br />
+
+                </h:form>
+
+
+
+
+
+                <h:form id="form2" style="font-size: small">
+                    <p:dialog header="Detalhes do Utilizador" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid id="pgrid"  columns="2" rendered="#{not empty userController.selected}" columnClasses="label,value">
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_username}" />
+                                <h:outputText value="#{userController.selected.username}" title="#{bundle.ViewUserTitle_username}"/>
+
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_email}" />
+                                <h:outputText value="#{userController.selected.email}" title="#{bundle.ViewUserTitle_email}"/>
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_datanascimento}" />
+                                <h:outputText value="#{userController.selected.datanascimento}" title="#{bundle.ViewUserTitle_datanascimento}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_morada}" />
+                                <h:outputText value="#{userController.selected.morada}" title="#{bundle.ViewUserTitle_morada}"/>
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_foto}"  rendered="#{not empty userController.selected.foto}"/>
+                               <p:graphicImage value="/uploads/#{userController.selected.foto}" height="150px" width="150px" rendered="#{not empty userController.selected.foto}"/>
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_datacriacao}" />
+                                <h:outputText value="#{userController.selected.datacriacao}" title="#{bundle.ViewUserTitle_datacriacao}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_dataultimoacesso}" />
+                                <h:outputText value="#{userController.selected.dataultimoacesso}" title="#{bundle.ViewUserTitle_dataultimoacesso}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+
+
+
+
+                                <h:outputText value="#{bundle.ViewUserLabel_groupOid}" />
+                                <h:outputText value="#{userController.selected.groupOid.groupname}" title="#{bundle.ViewUserTitle_groupOid}"/>
+                                
+
+                            </p:panelGrid>
+                                                            <p:commandLink action="#{userController.view2(userController.selected)}" actionListener="#{ideiaController.teste(userController.selected)}"  value="Consultar Perfil" ajax="false"/>
+
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

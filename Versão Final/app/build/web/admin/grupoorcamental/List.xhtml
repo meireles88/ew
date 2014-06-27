@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/admin/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListGrupoorcamentalTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+            <p:panel header="Gestão de Grupos Orçamentais" style="font-size: large">
+
+
+                <h:form style="font-size: small">
+                    <br/>
+
+                    <p:dataTable id="GrupoorcamentalTable" value="#{grupoorcamentalController.items}" var="item" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" widgetVar="GrupoorcamentalTable" emptyMessage="#{bundle.ListGrupoorcamentalEmpty}" filteredValue="#{grupoorcamentalController.filtered}" selection="#{grupoorcamentalController.selected}" selectionMode="single" rowKey="#{item.oid}">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Procurar: " />
+                                <p:inputText id="globalFilter" onkeyup="GrupoorcamentalTable.filter()" style="width:150px"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+
+
+
+                        <p:column headerText="#{bundle.ListGrupoorcamentalTitle_titulo}" filterBy="titulo" sortBy="titulo" filterMatchMode="contains">
+
+
+                            <h:outputText value="#{item.titulo}"/>
+
+                        </p:column>
+
+
+                        <p:column headerText="#{bundle.ListGrupoorcamentalTitle_descricao}" filterBy="descricao" sortBy="descricao" filterMatchMode="contains">
+
+
+                            <h:outputText value="#{item.descricao}"/>
+
+                        </p:column>
+
+
+                        <p:column style="width:3%;text-align: center">
+
+                            <p:commandLink update=":form2:pgrid" oncomplete="carDialog.show()" actionListener="#{grupoorcamentalController.setSelected(item)}">
+                                <span class="ui-icon ui-icon-search"></span>
+                            </p:commandLink>
+                            
+                            <p:commandLink update=":form3:pgrid" oncomplete="carDialog2.show()" actionListener="#{grupoorcamentalController.setSelected(item)}" >
+                                    <span class="ui-icon ui-icon-pencil"></span>
+                                </p:commandLink>
+                            
+                            <p:commandLink action="#{grupoorcamentalController.destroy}" title="#{bundle.ListUserDestroyLink}" update="GrupoorcamentalTable">
+                                <span class="ui-icon ui-icon-trash"></span>
+                                <p:confirm header="Confirmação" message="Tem a certeza que quer apagar?" icon="ui-icon-alert" />
+                            </p:commandLink>
+                        
+
+                            <p:confirmDialog global="true">
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                            </p:confirmDialog>
+
+                        </p:column>
+                    </p:dataTable>
+
+                    <br />
+
+                </h:form>
+                
+                
+                <h:form id="form2" style="font-size: small">
+                    <p:dialog header="Detalhes do Grupo Orçamental" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid id="pgrid"  columns="2" rendered="#{not empty grupoorcamentalController.selected}" columnClasses="label,value">
+
+
+                                <h:outputText value="#{bundle.ViewCategoriaLabel_titulo}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.titulo}" title="#{bundle.ViewCategoriaTitle_titulo}"/>
+
+
+                        <h:outputText value="#{bundle.ViewCategoriaLabel_descricao}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.descricao}" title="#{bundle.ViewCategoriaTitle_descricao}"/>
+
+
+                        <h:outputText value="Data de Criação:"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.datainsercao}" title="#{bundle.ViewCategoriaTitle_datainsercao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+
+                        <h:outputText value="#{bundle.ViewCategoriaLabel_dataedicao}"/>
+                        <h:outputText value="#{grupoorcamentalController.selected.dataedicao}" title="#{bundle.ViewCategoriaTitle_dataedicao}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                
+                <h:form id="form3" style="font-size: small">
+                    <p:dialog header="Editar Grupo Orçamental" widgetVar="carDialog2" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid id="pgrid"  columns="2" rendered="#{not empty grupoorcamentalController.selected}" columnClasses="label,value">
+                             
+                             <h:outputLabel value="#{bundle.EditCategoriaLabel_titulo}" for="titulo" />
+                        <p:inputText id="titulo" value="#{grupoorcamentalController.selected.titulo}" title="#{bundle.EditCategoriaTitle_titulo}" />
+
+
+
+                        <h:outputLabel value="#{bundle.EditCategoriaLabel_descricao}" for="descricao" />
+                        <p:inputText id="descricao" value="#{grupoorcamentalController.selected.descricao}" title="#{bundle.EditCategoriaTitle_descricao}" />
+                        
+                                
+                            </p:panelGrid>
+
+<p:commandButton action="#{grupoorcamentalController.update}" value="#{bundle.EditCategoriaSaveLink}" ajax="false" icon="ui-icon-disk"/>
+
+                        
+
+
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+                
+                
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>

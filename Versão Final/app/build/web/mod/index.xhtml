@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/mod/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.IndexTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+
+            <p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+
+            <br/>
+
+            <p:panel header="Ideias Sugeridas" style="font-size: large">
+
+                <h:form id="form" style="font-size: small">
+                    <br/>
+
+                    <p:commandButton action="#{ideiaController.prepareCreateFromMenu()}" value="#{bundle.ListIdeiaCreateLink}" icon="ui-icon-plusthick" ajax="false" />
+                    <br/><br/>
+                    <p:dataTable id="IdeiaTable" value="#{ideiaController.itemsApproved}" var="item" paginator="true" rows="10" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="5,10,15" widgetVar="IdeiaTable" emptyMessage="#{bundle.ListIdeiaEmpty}" filteredValue="#{ideiaController.filteredSugeridas}" selection="#{ideiaController.selected}" selectionMode="single" rowKey="#{item.oid}">
+
+                        <f:facet name="header">
+                            <p:outputPanel>
+                                <h:outputText value="Procurar: " />
+                                <p:inputText id="globalFilter" onkeyup="IdeiaTable.filter()" style="width:150px"/>
+                            </p:outputPanel>
+                        </f:facet>
+
+
+
+
+
+
+
+                        <p:column headerText="#{bundle.ListIdeiaTitle_titulo}" filterBy="#{item.titulo}" sortBy="#{item.titulo}" filterMatchMode="contains">
+
+
+                            <h:outputText value="#{item.titulo}"/>
+
+                        </p:column>
+
+
+                        <p:column headerText="#{bundle.ListIdeiaTitle_descricao}" filterBy="#{item.descricao}" sortBy="#{item.descricao}" filterMatchMode="contains">
+
+
+                            <h:outputText value="#{item.descricao}"/>
+
+                        </p:column>
+
+
+
+
+                        <p:column headerText="#{bundle.ListIdeiaTitle_rating}" sortBy="#{item.rating}" >
+
+
+                            <h:outputText value="#{item.rating}"/>
+
+                        </p:column>
+
+
+
+                    <p:column headerText="#{bundle.ListIdeiaTitle_grupoorcamentalOid}" filterBy="#{item.grupoorcamentalOid}" filterOptions="#{grupoorcamentalController.grupoOrcamentalOptions}" filterMatchMode="contains">
+
+
+                        <h:outputText value="#{item.grupoorcamentalOid.titulo}"/>
+
+                    </p:column>
+
+
+                    <p:column headerText="#{bundle.ListIdeiaTitle_categoriaOid}" filterBy="#{item.categoriaOid}" filterOptions="#{categoriaController.categoriaOptions}" filterMatchMode="contains">
+
+
+                        <h:outputText value="#{item.categoriaOid.titulo}"/>
+
+                    </p:column>
+
+                        <p:column style="width:3%;text-align: center">
+
+                            <p:commandLink update=":form2:pgrid" oncomplete="carDialog.show()" actionListener="#{ideiaController.setSelected(item)}">
+                                <span class="ui-icon ui-icon-search"></span>
+                            </p:commandLink>
+                            <p:commandLink action="#{ideiaController.votar}" title="#{bundle.ListIdeiaEditLink}" update=":form:IdeiaTable" rendered="#{!ideiaController.jaVotou(item)}">
+                                <span class="ui-icon ui-icon-plus" ></span>
+
+                                <p:confirm header="Confirmação" message="Quer votar?" icon="ui-icon-alert" />
+                            </p:commandLink>
+
+                            <p:commandLink action="#{ideiaController.votar}" title="#{bundle.ListIdeiaEditLink}" update=":form:IdeiaTable" rendered="#{ideiaController.jaVotou(item)}">
+                                <span class="ui-icon ui-icon-minus" ></span>
+
+                                <p:confirm header="Confirmação" message="Remover voto?" icon="ui-icon-alert" />
+                            </p:commandLink>
+
+
+                            <p:confirmDialog global="true">
+                                <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>  
+                                <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>       
+                            </p:confirmDialog>
+                        </p:column>
+                    </p:dataTable>
+
+
+
+
+
+                    <br />
+
+                </h:form>
+
+                <h:form id="form2" style="font-size: small">
+                    <p:dialog header="Detalhes da Ideia" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid id="pgrid"  columns="2" rendered="#{not empty ideiaController.selected}" columnClasses="label,value">
+
+
+                                <h:outputText value="Título:" />
+                                <h:outputText value="#{ideiaController.selected.titulo}" />
+
+                                <h:outputText value="Descrição:" />
+                                <h:outputText value="#{ideiaController.selected.descricao}" />
+
+                                <h:outputText value="Data de Criação:" />
+                                <h:outputText value="#{ideiaController.selected.datainsercao}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+
+                                <h:outputText value="Rating:" />
+                                <h:outputText value="#{ideiaController.selected.rating}" />
+
+                                <h:outputText value="Quantia:" />
+                                <h:outputText value="#{ideiaController.selected.quantia}" />
+
+                                <h:outputText value="Categoria:" />
+                                <h:outputText value="#{ideiaController.selected.categoriaOid.titulo}" />
+
+                                <h:outputText value="Grupo Orçamental:" />
+                                <h:outputText value="#{ideiaController.selected.grupoorcamentalOid.titulo}" />
+                                
+                                <h:outputText value="Tags:" />
+                                <ui:repeat var="item" value="#{ideiaController.selected.tagCollection}">
+                                    <h:outputText value=" #{item.nome} " />
+        </ui:repeat>
+
+                                <h:outputText value="Autor:" />
+                                <p:commandLink action="#{userController.view2(ideiaController.selected.userOid)}" actionListener="#{ideiaController.teste(ideiaController.selected.userOid)}"  value="#{ideiaController.selected.userOid.username}" ajax="false"/>
+
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>

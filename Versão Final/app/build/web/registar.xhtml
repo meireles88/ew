@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateUserTitle}"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            
+                            
+
+
+
+            
+
+           
+            <p:panel header="Registo">
+
+                <h:form styleClass="left form_to_photo">
+                    
+
+                    <h:panelGrid columns="2">
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_username}" for="username" />
+
+                        <p:inputText id="username" value="#{userController.selected.username}" title="#{bundle.CreateUserTitle_username}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_password}" for="password" />
+
+                        <p:inputText id="password" type="password" value="#{userController.selected.password}" title="#{bundle.CreateUserTitle_password}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_email}" for="email" />
+
+                        <p:inputText id="email" value="#{userController.selected.email}" title="#{bundle.CreateUserTitle_email}" />
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_datanascimento}" for="datanascimento" />
+
+
+                        <p:calendar id="datanascimento" value="#{userController.selected.datanascimento}" title="#{bundle.CreateUserTitle_datanascimento}" yearRange="1900:2020" navigator="true">
+
+                        </p:calendar>
+
+
+
+
+                        <h:outputLabel value="#{bundle.CreateUserLabel_morada}" for="morada" />
+
+                        <p:inputText id="morada" value="#{userController.selected.morada}" title="#{bundle.CreateUserTitle_morada}" />
+
+
+
+
+                        
+
+
+
+
+
+
+
+                    </h:panelGrid>
+                    <br/>
+<p:commandButton action="#{userController.create2}" value="#{bundle.CreateUserSaveLink}" ajax="false" icon="ui-icon-disk"/>
+                    
+                    
+                </h:form>
+                <h:panelGrid columns="2" styleClass="left form_with_photo">
+                <h:outputLabel value="#{bundle.CreateUserLabel_foto}" />
+                
+                        
+                        <h:form prependId="true" enctype="multipart/form-data">
+                        <p:fileUpload fileUploadListener="#{userController.handleFileUpload}" mode="advanced"/>
+                       
+                        </h:form>
+                             </h:panelGrid>
+                <div class="clr"></div>
+                
+                <br />
+            
+              
+            
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+
+</html>
